@@ -1,9 +1,32 @@
 import groq from 'groq'
 import imageUrlBuilder from '@sanity/image-url'
+import { PortableText } from '@portabletext/react'
 import { client } from '../../../client'
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source)
+}
+
+const ptComponents = {
+  types: {
+    image: ({ value }) => {
+      if (!value?.asset?._ref) {
+        return null
+      }
+      return (
+        <img
+          alt={value.alt || ' '}
+          loading='lazy'
+          src={urlFor(value)
+            .width(600)
+            .height(240)
+            .fit('max')
+            .auto('format')
+            .url()}
+        />
+      )
+    },
+  },
 }
 
 const Post = (props) => {
@@ -13,24 +36,27 @@ const Post = (props) => {
     categories,
     authorImage,
     mainImage,
+    body = [],
   } = props.post
 
   return (
     <article>
-      <h1 className='text-2xl font-semibold'>{title}</h1>
+      <h1 className='text-3xl font-semibold my-2'>{title}</h1>
 
       {mainImage && (
-        <div>
+        <div className='my-4'>
           <img src={urlFor(mainImage).width(300).url()} alt={title} />
         </div>
       )}
 
-      <p className='text-xl'>Posted in</p>
+      <p className='text-2xl'>Posted in</p>
 
       {categories && (
         <ul className='ml-2'>
           {categories.map((category) => (
-            <li key={category}>{category}</li>
+            <li key={category} className=''>
+              {category}
+            </li>
           ))}
         </ul>
       )}
@@ -42,6 +68,8 @@ const Post = (props) => {
           <img src={urlFor(authorImage).width(50).url()} alt={name} />
         </div>
       )}
+
+      <PortableText value={body} components={ptComponents} />
     </article>
   )
 }
@@ -51,7 +79,8 @@ const query = groq`*[_type == "post" && slug.current == $slug][0]{
   "name": author->name, 
   "categories": categories[] -> title, 
   "authorImage": author->image,
-  mainImage
+  mainImage,
+  body
   }`
 
 /* IMPORTANT
