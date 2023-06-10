@@ -34,8 +34,11 @@ const Post = ({ post }) => {
   return (
     <>
       <article>
-        <h1 className='text-3xl font-semibold my-2'>{title}</h1>
-
+        {title ? (
+          <h1 className='text-3xl font-semibold my-2'>{title}</h1>
+        ) : (
+          <h1>Untitled</h1>
+        )}
         {mainImage && (
           <div className='my-4'>
             <img src={urlFor(mainImage).width(300).url()} alt={title} />

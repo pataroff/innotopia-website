@@ -73,22 +73,8 @@ export default function Page({
   preview: Boolean
   data: { post: SanityDocument; params: {} }
 }) {
-  // This is not needed! 👈🏻
-  // const {
-  //   title = 'Missing title',
-  //   name = 'Missing name',
-  //   categories,
-  //   authorImage,
-  //   mainImage,
-  //   body = [],
-  // } = data.post
-
   return preview ? (
     <PreviewSuspense fallback='Loading...'>
-      {/* This is where the error happens! 👈🏻 */}
-      {/* I assume the error is destructuring related. */}
-      {/* TypeError: Cannot read properties of undefined (reading 'title') */}
-      {/* How is the data passed to the PreviewPost component? */}
       <PreviewPost query={query} params={data.params} />
     </PreviewSuspense>
   ) : (
