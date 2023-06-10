@@ -1,44 +1,49 @@
-import Link from 'next/link'
-import groq from 'groq'
-import { client } from '../../client'
-import Head from 'next/head'
+import { lazy } from 'react'
+import { groq } from 'next-sanity'
+import type { SanityDocument } from '@sanity/client'
+import { client } from '../lib/sanity.client'
+import Posts from '../components/Posts'
+import { PreviewSuspense } from 'next-sanity/preview'
 
-const Index = ({ posts }) => {
-  return (
-    <>
-      <Head>
-        <title>{posts.length} Posts</title>
-      </Head>
-      <h1 className='text-3xl my-4 font-bold flex justify-center items-center '>
-        Welcome to Innotopia's Blog!
-      </h1>
-      <div className='container mx-auto grid grid-cols-1 divide-y divide-blue-100'>
-        {posts.length > 0 &&
-          posts.map(
-            ({ _id, title = '', slug = '', publishedAt = '' }) =>
-              slug && (
-                <li key={_id} className='p-4 hover:bg-blue-50'>
-                  <Link href={`/post/${encodeURIComponent(slug.current)}`}>
-                    {title} ({new Date(publishedAt).toDateString()})
-                  </Link>{' '}
-                </li>
-              )
-          )}
-      </div>
-    </>
-  )
-}
+const PreviewPosts = lazy(() => import('../components/PreviewPosts'))
+const query = groq`*[_type == "post" && publishedAt < now()] | order(publishedAt desc)`
 
-export async function getStaticProps() {
-  const posts = await client.fetch(
-    groq`*[_type == "post" && publishedAt < now()] | order(publishedAt desc)`
-  )
+export const getStaticProps = async ({ preview = false }) => {
+  if (preview) {
+    return { props: { preview } }
+  }
+
+  const data = await client.fetch(query)
 
   return {
     props: {
-      posts,
+      preview,
+      data,
     },
   }
 }
 
-export default Index
+export default function Home({
+  preview,
+  data,
+}: {
+  preview: Boolean
+  data: SanityDocument[]
+}) {
+  return (
+    <>
+      <h1 className='text-3xl my-4 font-bold flex justify-center items-center '>
+        Welcome to Innotopia's Blog!
+      </h1>
+      {preview ? (
+        <PreviewSuspense fallback='Loading...'>
+          <PreviewPosts query={query} />
+        </PreviewSuspense>
+      ) : (
+        <>
+          <Posts posts={data} />
+        </>
+      )}
+    </>
+  )
+}

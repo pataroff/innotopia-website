@@ -1,79 +1,12 @@
-import groq from 'groq'
-import imageUrlBuilder from '@sanity/image-url'
-import { PortableText } from '@portabletext/react'
-import { client } from '../../../client'
+import { PreviewSuspense } from 'next-sanity/preview'
+import { lazy } from 'react'
+import { SanityDocument } from '@sanity/client'
+import { groq } from 'next-sanity'
 
-function urlFor(source) {
-  return imageUrlBuilder(client).image(source)
-}
+import { client } from '../../lib/sanity.client'
+import Post from '../../components/Post'
 
-const ptComponents = {
-  types: {
-    image: ({ value }) => {
-      if (!value?.asset?._ref) {
-        return null
-      }
-      return (
-        <img
-          alt={value.alt || ' '}
-          loading='lazy'
-          src={urlFor(value)
-            .width(600)
-            .height(240)
-            .fit('max')
-            .auto('format')
-            .url()}
-        />
-      )
-    },
-  },
-}
-
-const Post = (props) => {
-  const {
-    title = 'Missing title',
-    name = 'Missing name',
-    categories,
-    authorImage,
-    mainImage,
-    body = [],
-  } = props.post
-
-  return (
-    <article>
-      <h1 className='text-3xl font-semibold my-2'>{title}</h1>
-
-      {mainImage && (
-        <div className='my-4'>
-          <img src={urlFor(mainImage).width(300).url()} alt={title} />
-        </div>
-      )}
-
-      <p className='text-2xl'>Posted in</p>
-
-      {categories && (
-        <ul className='ml-2'>
-          {categories.map((category) => (
-            <li key={category} className=''>
-              {category}
-            </li>
-          ))}
-        </ul>
-      )}
-
-      <span className='text-xl font-light'>By {name}</span>
-
-      {authorImage && (
-        <div>
-          <img src={urlFor(authorImage).width(50).url()} alt={name} />
-        </div>
-      )}
-
-      <PortableText value={body} components={ptComponents} />
-    </article>
-  )
-}
-
+const PreviewPost = lazy(() => import('../../components/PreviewPost'))
 const query = groq`*[_type == "post" && slug.current == $slug][0]{
   title, 
   "name": author->name, 
@@ -112,16 +45,55 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps(context) {
+export const getStaticProps = async ({ params, preview = false }) => {
   // It's important to default the slug so that it doesn't return "undefined"
-  const { slug = '' } = context.params
+  const { slug = '' } = params
+
+  if (preview) {
+    return { props: { preview, data: { params } } }
+  }
+
   const post = await client.fetch(query, { slug })
 
   return {
     props: {
-      post,
+      preview,
+      data: {
+        post,
+        params: {},
+      },
     },
   }
 }
 
-export default Post
+export default function Page({
+  preview,
+  data,
+}: {
+  preview: Boolean
+  data: { post: SanityDocument; params: {} }
+}) {
+  // This is not needed! 👈🏻
+  // const {
+  //   title = 'Missing title',
+  //   name = 'Missing name',
+  //   categories,
+  //   authorImage,
+  //   mainImage,
+  //   body = [],
+  // } = data.post
+
+  return preview ? (
+    <PreviewSuspense fallback='Loading...'>
+      {/* This is where the error happens! 👈🏻 */}
+      {/* I assume the error is destructuring related. */}
+      {/* TypeError: Cannot read properties of undefined (reading 'title') */}
+      {/* How is the data passed to the PreviewPost component? */}
+      <PreviewPost query={query} params={data.params} />
+    </PreviewSuspense>
+  ) : (
+    <>
+      <Post post={data.post} />
+    </>
+  )
+}
