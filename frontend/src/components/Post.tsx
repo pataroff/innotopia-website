@@ -1,9 +1,9 @@
-import { client } from '../lib/sanity.client'
+import { sanityClient } from '../lib/sanity.client'
 import imageUrlBuilder from '@sanity/image-url'
 import { PortableText } from '@portabletext/react'
 
 function urlFor(source) {
-  return imageUrlBuilder(client).image(source)
+  return imageUrlBuilder(sanityClient).image(source)
 }
 
 const ptComponents = {
@@ -29,15 +29,7 @@ const ptComponents = {
 }
 
 const Post = ({ post }) => {
-  const {
-    title,
-    mainImage,
-    categories,
-    name,
-    authorImage,
-    body,
-    shopstoryBlock,
-  } = post
+  const { title, mainImage, categories, name, authorImage, body } = post
 
   return (
     <>

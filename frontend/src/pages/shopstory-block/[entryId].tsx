@@ -1,8 +1,7 @@
 import { Metadata, RenderableContent, ShopstoryClient } from '@shopstory/core'
 import { Shopstory, ShopstoryMetadataProvider } from '@shopstory/react'
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import { createClient } from 'next-sanity'
-import sanityConfig from '../../../../studio/sanity.config'
+import { sanityClient } from '../../lib/sanity.client'
 import { shopstoryConfig } from '../../shopstory/config'
 import { DemoShopstoryProvider } from '../../shopstory/provider'
 
@@ -59,14 +58,6 @@ async function fetchShopstoryContentJSONFromCMS(
   locale: string,
   preview: boolean
 ): Promise<any> {
-  const sanityClient = createClient({
-    apiVersion: '2023-03-30',
-    dataset: sanityConfig.dataset,
-    projectId: sanityConfig.projectId,
-    useCdn: false,
-    token: process.env.NEXT_PUBLIC_SANITY_API_TOKEN,
-  })
-
   const entryIdQuery =
     preview && !entryId.startsWith('drafts.') ? `drafts.${entryId}` : entryId
 

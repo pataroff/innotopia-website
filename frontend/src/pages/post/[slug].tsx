@@ -3,7 +3,16 @@ import { lazy } from 'react'
 import { SanityDocument } from '@sanity/client'
 import { groq } from 'next-sanity'
 
-import { client } from '../../lib/sanity.client'
+// Shopstory
+import { Metadata, RenderableContent, ShopstoryClient } from '@shopstory/core'
+import { Shopstory, ShopstoryMetadataProvider } from '@shopstory/react'
+import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import sanityConfig from '../../../../studio/sanity.config'
+import { shopstoryConfig } from '../../shopstory/config'
+import { DemoShopstoryProvider } from '../../shopstory/provider'
+
+// Live Preview
+import { sanityClient } from '../../lib/sanity.client'
 import Post from '../../components/Post'
 
 const PreviewPost = lazy(() => import('../../components/PreviewPost'))
@@ -14,7 +23,6 @@ const query = groq`*[_type == "post" && slug.current == $slug][0]{
   "authorImage": author->image,
   mainImage,
   body,
-  shopstoryBlock
   }`
 
 /* IMPORTANT
@@ -36,7 +44,7 @@ to that we have in the parameters
 */
 
 export async function getStaticPaths() {
-  const paths = await client.fetch(
+  const paths = await sanityClient.fetch(
     `*[_type == "post" && defined(slug.current)][].slug.current`
   )
 
@@ -54,7 +62,7 @@ export const getStaticProps = async ({ params, preview = false }) => {
     return { props: { preview, data: { params } } }
   }
 
-  const post = await client.fetch(query, { slug })
+  const post = await sanityClient.fetch(query, { slug })
 
   return {
     props: {
