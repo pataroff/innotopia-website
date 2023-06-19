@@ -1,7 +1,7 @@
 import { lazy } from 'react'
 import { groq } from 'next-sanity'
 import type { SanityDocument } from '@sanity/client'
-import { client } from '../lib/sanity.client'
+import { sanityClient } from '../lib/sanity.client'
 import Posts from '../components/Posts'
 import { PreviewSuspense } from 'next-sanity/preview'
 
@@ -13,7 +13,7 @@ export const getStaticProps = async ({ preview = false }) => {
     return { props: { preview } }
   }
 
-  const data = await client.fetch(query)
+  const data = await sanityClient.fetch(query)
 
   return {
     props: {
