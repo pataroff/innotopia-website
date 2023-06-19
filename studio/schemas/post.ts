@@ -49,6 +49,12 @@ export default defineType({
       title: 'Body',
       type: 'blockContent',
     }),
+    defineField({
+      name: 'shopstoryBlock',
+      title: 'Shopstory Block',
+      type: 'array',
+      of: [{type: 'reference', to: {type: 'shopstoryBlock'}}],
+    }),
   ],
 
   preview: {

@@ -29,7 +29,15 @@ const ptComponents = {
 }
 
 const Post = ({ post }) => {
-  const { title, mainImage, categories, name, authorImage, body } = post
+  const {
+    title,
+    mainImage,
+    categories,
+    name,
+    authorImage,
+    body,
+    shopstoryBlock,
+  } = post
 
   return (
     <>

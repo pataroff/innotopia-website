@@ -2,13 +2,23 @@ import {DefaultDocumentNodeResolver} from 'sanity/desk'
 import Iframe from 'sanity-plugin-iframe-pane'
 import {SanityDocument} from 'sanity'
 
-function getPreviewUrl(doc: SanityDocument) {
+// The error is related to type declarations! 👈🏻
+// The custom webpack configuration fixes the error, but causes another error in /pages/_document.tsx!
+// Check next.config.json for more information on the custom webpack configuration!
+
+// The solution for now is to remove the type declarations!
+
+// The type declarations that were removed:
+// doc : SanityDoucment
+// defaultDocumentNode : DefaultDocumentNodeResolver
+
+function getPreviewUrl(doc) {
   return doc?.slug?.current
     ? `http://localhost:3000/api/preview?slug=${doc.slug.current}`
     : `http://localhost:3000/api/preview`
 }
 
-export const defaultDocumentNode: DefaultDocumentNodeResolver = (S, {schemaType}) => {
+export const defaultDocumentNode = (S, {schemaType}) => {
   switch (schemaType) {
     case 'post':
       return S.document().views([
@@ -16,7 +26,7 @@ export const defaultDocumentNode: DefaultDocumentNodeResolver = (S, {schemaType}
         S.view
           .component(Iframe)
           .options({
-            url: (doc: SanityDocument) => getPreviewUrl(doc),
+            url: (doc) => getPreviewUrl(doc),
           })
           .title('Preview'),
       ])

@@ -13,7 +13,8 @@ const query = groq`*[_type == "post" && slug.current == $slug][0]{
   "categories": categories[] -> title, 
   "authorImage": author->image,
   mainImage,
-  body
+  body,
+  shopstoryBlock
   }`
 
 /* IMPORTANT
