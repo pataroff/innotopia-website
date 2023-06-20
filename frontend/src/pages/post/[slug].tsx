@@ -19,6 +19,8 @@ const query = groq`*[_type == "post" && slug.current == $slug][0]{
   "authorImage": author->image,
   mainImage,
   body,
+  // Separate this part of the query a separate query!
+  // Make use of context in getStaticProps and make sure that shopstoryConfig is set up correctly!
   "shopstoryRawContent": shopstoryBlock[] -> {
     "content": content
   }
@@ -72,25 +74,11 @@ export const getStaticProps = async ({ params, preview = false }) => {
     sanity: { preview },
   })
 
-  if (post.shopstoryRawContent != null && post.shopstoryRawContent.length > 0) {
-    const renderableContent = shopstoryClient.add(
-      // This seems to be valid input for shopstoryClient! - post.shopstoryRawContent[0].content.en
-      post.shopstoryRawContent[0].content.en
-    )
-    const meta = await shopstoryClient.build()
-
-    return {
-      props: {
-        preview,
-        data: {
-          post,
-          params: {},
-        },
-        renderableContent,
-        meta,
-      },
-    }
-  }
+  const renderableContent = shopstoryClient.add(
+    // This seems to be valid input for shopstoryClient! - post.shopstoryRawContent[0].content.en
+    post.shopstoryRawContent[0].content.en
+  )
+  const meta = await shopstoryClient.build()
 
   return {
     props: {
@@ -99,6 +87,8 @@ export const getStaticProps = async ({ params, preview = false }) => {
         post,
         params: {},
       },
+      renderableContent,
+      meta,
     },
   }
 }
