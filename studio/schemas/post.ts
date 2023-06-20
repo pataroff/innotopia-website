@@ -51,7 +51,7 @@ export default defineType({
     }),
     defineField({
       name: 'shopstoryBlock',
-      title: 'Shopstory Block',
+      title: 'Shopstory Blocks',
       type: 'array',
       of: [{type: 'reference', to: {type: 'shopstoryBlock'}}],
     }),

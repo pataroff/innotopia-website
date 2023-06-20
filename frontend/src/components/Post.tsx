@@ -2,6 +2,10 @@ import { sanityClient } from '../lib/sanity.client'
 import imageUrlBuilder from '@sanity/image-url'
 import { PortableText } from '@portabletext/react'
 
+// Shopstory Plugin
+import { DemoShopstoryProvider } from '../shopstory/provider'
+import { Shopstory, ShopstoryMetadataProvider } from '@shopstory/react'
+
 function urlFor(source) {
   return imageUrlBuilder(sanityClient).image(source)
 }
@@ -28,7 +32,7 @@ const ptComponents = {
   },
 }
 
-const Post = ({ post }) => {
+const Post = ({ post, renderableContent, meta }) => {
   const { title, mainImage, categories, name, authorImage, body } = post
 
   return (
@@ -66,6 +70,12 @@ const Post = ({ post }) => {
         )}
 
         <PortableText value={body} components={ptComponents} />
+
+        <DemoShopstoryProvider>
+          <ShopstoryMetadataProvider meta={meta}>
+            <Shopstory content={renderableContent} />
+          </ShopstoryMetadataProvider>
+        </DemoShopstoryProvider>
       </article>
     </>
   )

@@ -3,17 +3,13 @@ import { lazy } from 'react'
 import { SanityDocument } from '@sanity/client'
 import { groq } from 'next-sanity'
 
-// Shopstory
-import { Metadata, RenderableContent, ShopstoryClient } from '@shopstory/core'
-import { Shopstory, ShopstoryMetadataProvider } from '@shopstory/react'
-import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import sanityConfig from '../../../../studio/sanity.config'
-import { shopstoryConfig } from '../../shopstory/config'
-import { DemoShopstoryProvider } from '../../shopstory/provider'
-
 // Live Preview
 import { sanityClient } from '../../lib/sanity.client'
 import Post from '../../components/Post'
+
+// Shopstory Plugin
+import { ShopstoryClient } from '@shopstory/core'
+import { shopstoryConfig } from '../../../src/shopstory/config'
 
 const PreviewPost = lazy(() => import('../../components/PreviewPost'))
 const query = groq`*[_type == "post" && slug.current == $slug][0]{
@@ -23,6 +19,11 @@ const query = groq`*[_type == "post" && slug.current == $slug][0]{
   "authorImage": author->image,
   mainImage,
   body,
+  // Separate this part of the query a separate query!
+  // Make use of context in getStaticProps and make sure that shopstoryConfig is set up correctly!
+  "shopstoryRawContent": shopstoryBlock[] -> {
+    "content": content
+  }
   }`
 
 /* IMPORTANT
@@ -64,6 +65,21 @@ export const getStaticProps = async ({ params, preview = false }) => {
 
   const post = await sanityClient.fetch(query, { slug })
 
+  // Debug the response of the fetch
+  // console.log(post)
+  // Seems like we are able to fetch the content of a shopstoryBlock!
+
+  const shopstoryClient = new ShopstoryClient(shopstoryConfig, {
+    locale: 'en',
+    sanity: { preview },
+  })
+
+  const renderableContent = shopstoryClient.add(
+    // This seems to be valid input for shopstoryClient! - post.shopstoryRawContent[0].content.en
+    post.shopstoryRawContent[0].content.en
+  )
+  const meta = await shopstoryClient.build()
+
   return {
     props: {
       preview,
@@ -71,6 +87,8 @@ export const getStaticProps = async ({ params, preview = false }) => {
         post,
         params: {},
       },
+      renderableContent,
+      meta,
     },
   }
 }
@@ -78,9 +96,12 @@ export const getStaticProps = async ({ params, preview = false }) => {
 export default function Page({
   preview,
   data,
+  renderableContent,
+  meta,
 }: {
   preview: Boolean
   data: { post: SanityDocument; params: {} }
+  // Add type declarations for renderableContent and meta!
 }) {
   return preview ? (
     <PreviewSuspense fallback='Loading...'>
@@ -88,7 +109,11 @@ export default function Page({
     </PreviewSuspense>
   ) : (
     <>
-      <Post post={data.post} />
+      <Post
+        post={data.post}
+        renderableContent={renderableContent}
+        meta={meta}
+      />
     </>
   )
 }

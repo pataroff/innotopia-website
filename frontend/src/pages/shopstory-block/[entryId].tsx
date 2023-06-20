@@ -40,6 +40,9 @@ export const getStaticProps: GetStaticProps<
     !!preview
   )
 
+  // console.log(rawContent)
+  // Returns an object with content.en properties directly inside of it!
+
   const shopstoryClient = new ShopstoryClient(shopstoryConfig, {
     locale,
     sanity: { preview },
