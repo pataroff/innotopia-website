@@ -40,7 +40,7 @@ export const getStaticProps: GetStaticProps<
     !!preview
   )
 
-  // console.log(rawContent)
+  console.log(rawContent)
   // Returns an object with content.en properties directly inside of it!
 
   const shopstoryClient = new ShopstoryClient(shopstoryConfig, {
@@ -65,7 +65,7 @@ async function fetchShopstoryContentJSONFromCMS(
     preview && !entryId.startsWith('drafts.') ? `drafts.${entryId}` : entryId
 
   const documents = await sanityClient.fetch(
-    `*[_id == "${entryIdQuery}"]{"content": content.${locale}}`
+    `*[_id == "${entryIdQuery}"]{"content":content.${locale}}`
   )
 
   if (documents.length === 0) {
