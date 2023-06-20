@@ -71,11 +71,13 @@ const Post = ({ post, renderableContent, meta }) => {
 
         <PortableText value={body} components={ptComponents} />
 
-        <DemoShopstoryProvider>
-          <ShopstoryMetadataProvider meta={meta}>
-            <Shopstory content={renderableContent} />
-          </ShopstoryMetadataProvider>
-        </DemoShopstoryProvider>
+        {renderableContent && meta && (
+          <DemoShopstoryProvider>
+            <ShopstoryMetadataProvider meta={meta}>
+              <Shopstory content={renderableContent} />
+            </ShopstoryMetadataProvider>
+          </DemoShopstoryProvider>
+        )}
       </article>
     </>
   )

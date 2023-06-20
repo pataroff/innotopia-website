@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { usePreview } from '../lib/sanity.preview'
 import Post from './Post'
 
-export default function PreviewMovie({
+export default function PreviewPost({
   query,
   params,
 }: {
