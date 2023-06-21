@@ -65,7 +65,6 @@ export const getStaticProps = async ({ params, preview = false }) => {
 
   // Debug the response of the fetch
   // console.log(post)
-  // Seems like we are able to fetch the content of a shopstoryBlock!
 
   const shopstoryClient = new ShopstoryClient(shopstoryConfig, {
     locale: 'en',
@@ -73,10 +72,18 @@ export const getStaticProps = async ({ params, preview = false }) => {
   })
 
   if (post.shopstoryRawContent != null && post.shopstoryRawContent.length > 0) {
-    const renderableContent = shopstoryClient.add(
-      // This seems to be valid input for shopstoryClient! - post.shopstoryRawContent[0].content.en
-      post.shopstoryRawContent[0].content.en
+    // For each object inside the shopstoryRawContent array call shopstoryClient.add(obj.content.en) 👇🏻
+
+    // Multiple Shopstory Blocks 👇🏻
+    const renderableContent = post.shopstoryRawContent.map((obj) =>
+      shopstoryClient.add(obj.content.en)
     )
+
+    // Single Shopstory Block 👇🏻
+    // const renderableContent = shopstoryClient.add(
+    //   post.shopstoryRawContent[0].content.en
+    // )
+
     const meta = await shopstoryClient.build()
 
     return {
@@ -89,6 +96,7 @@ export const getStaticProps = async ({ params, preview = false }) => {
         renderableContent,
         meta,
       },
+      revalidate: 10,
     }
   }
 

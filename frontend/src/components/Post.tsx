@@ -74,7 +74,9 @@ const Post = ({ post, renderableContent, meta }) => {
         {renderableContent && meta && (
           <DemoShopstoryProvider>
             <ShopstoryMetadataProvider meta={meta}>
-              <Shopstory content={renderableContent} />
+              {renderableContent.map((renderableContent, index) => (
+                <Shopstory content={renderableContent} key={index} />
+              ))}
             </ShopstoryMetadataProvider>
           </DemoShopstoryProvider>
         )}
