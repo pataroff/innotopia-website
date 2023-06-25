@@ -8,7 +8,7 @@ export const shopstoryConfig: Config = {
     sanityPlugin({
       dataset: sanityConfig.dataset,
       projectId: sanityConfig.projectId,
-      token: process.env.NEXT_PUBLIC_SANITY_API_TOKEN,
+      token: process.env.NEXT_PUBLIC_SHOPSTORY_API_TOKEN,
     }),
   ],
 }

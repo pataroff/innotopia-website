@@ -12,7 +12,9 @@ import { ShopstoryClient } from '@shopstory/core'
 import { shopstoryConfig } from '../../../src/shopstory/config'
 
 const PreviewPost = lazy(() => import('../../components/PreviewPost'))
-const query = groq`*[_type == "post" && slug.current == $slug][0]{
+
+const query = groq`*[_type == "post" && (_id in path('drafts.**')) && slug.current == $slug][0]{
+  _id,
   title, 
   "name": author->name, 
   "categories": categories[] -> title, 
@@ -64,7 +66,24 @@ export const getStaticProps = async ({ params, preview = false }) => {
   const post = await sanityClient.fetch(query, { slug })
 
   // Debug the response of the fetch
-  // console.log(post)
+  console.log(post)
+
+  // Sanity Client Authentication
+  if (sanityClient.config().token) {
+    console.log('sanityClient is authenticated with an access token')
+  } else {
+    console.log('sanityClient is not authenticated with an access token')
+  }
+
+  if (sanityClient.config().useCdn) {
+    console.log('sanityClient is using the default CDN authentication')
+  } else {
+    console.log('sanityClient is using a custom authentication method')
+  }
+
+  if (!post) {
+    return { notFound: true }
+  }
 
   const shopstoryClient = new ShopstoryClient(shopstoryConfig, {
     locale: 'en',
