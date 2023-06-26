@@ -72,8 +72,6 @@ export const getStaticProps = async ({ params, preview = false }) => {
   // It's important to default the slug so that it doesn't return "undefined"
   const { slug = '' } = params
 
-  // If it is in preview, but it has already been published and there is no draft documents,
-  // it would return null for post as it is trying to do the fetch with the draftQuery!
   const query = preview ? draftQuery : publishedQuery
 
   let post = await sanityClient.fetch(query, { slug })
@@ -94,7 +92,6 @@ export const getStaticProps = async ({ params, preview = false }) => {
 
     const meta = await shopstoryClient.build()
 
-    // This works as long as you are not in preview mode! 🤔
     return {
       props: {
         preview,
@@ -110,7 +107,7 @@ export const getStaticProps = async ({ params, preview = false }) => {
     // { params: { slug: 'ede-staal-mijn-groningen-mien-grunne' } }
   }
 
-  // If post.shopstoryRawContent is empty!
+  // if (post.shopstoryRawContent == null && post.shopstoryRawContent.length < 0)
   return {
     props: {
       preview,
@@ -132,7 +129,6 @@ export default function Page({
   data: { post: SanityDocument; params: {} }
   renderableContent: RenderableContent
   meta: Metadata
-  // Add type declarations for renderableContent and meta!
 }) {
   return preview ? (
     <PreviewSuspense fallback='Loading...'>
