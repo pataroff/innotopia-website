@@ -73,12 +73,14 @@ export const getStaticProps = async ({ params, preview = false }) => {
   const { slug = '' } = params
 
   // If it is in preview, but it has already been published and there is no draft documents,
-  // it would return null for post!
+  // it would return null for post as it is trying to do the fetch with the draftQuery!
   const query = preview ? draftQuery : publishedQuery
 
-  const post = await sanityClient.fetch(query, { slug })
+  let post = await sanityClient.fetch(query, { slug })
 
-  console.log(post)
+  if (post === null && preview) {
+    post = await sanityClient.fetch(publishedQuery, { slug })
+  }
 
   const shopstoryClient = new ShopstoryClient(shopstoryConfig, {
     locale: 'en',
@@ -114,7 +116,7 @@ export const getStaticProps = async ({ params, preview = false }) => {
       preview,
       data: {
         post,
-        params: {},
+        params: { slug },
       },
     },
   }
