@@ -13,7 +13,7 @@ import { shopstoryConfig } from '../../../src/shopstory/config'
 
 const PreviewPost = lazy(() => import('../../components/PreviewPost'))
 
-const query = groq`*[_type == "post" && (_id in path('drafts.**')) && slug.current == $slug][0]{
+const draftQuery = groq`*[_type == "post" && slug.current == $slug && (_id in path('drafts.**'))][0]{
   _id,
   title, 
   "name": author->name, 
@@ -24,6 +24,19 @@ const query = groq`*[_type == "post" && (_id in path('drafts.**')) && slug.curre
   "shopstoryRawContent": shopstoryBlock[] -> {
     "content": content
   }
+  }`
+
+const publishedQuery = groq`*[_type == "post" && slug.current == $slug && !(_id in path('drafts.**'))][0]{
+    _id,
+    title,
+    "name": author->name,
+    "categories": categories[] -> title,
+    "authorImage": author->image,
+    mainImage,
+    body,
+    "shopstoryRawContent": shopstoryBlock[] -> {
+      "content": content
+    }
   }`
 
 /* IMPORTANT
@@ -59,31 +72,13 @@ export const getStaticProps = async ({ params, preview = false }) => {
   // It's important to default the slug so that it doesn't return "undefined"
   const { slug = '' } = params
 
-  if (preview) {
-    return { props: { preview, data: { params } } }
-  }
+  // If it is in preview, but it has already been published and there is no draft documents,
+  // it would return null for post!
+  const query = preview ? draftQuery : publishedQuery
 
   const post = await sanityClient.fetch(query, { slug })
 
-  // Debug the response of the fetch
-  console.log(post)
-
-  // Sanity Client Authentication
-  if (sanityClient.config().token) {
-    console.log('sanityClient is authenticated with an access token')
-  } else {
-    console.log('sanityClient is not authenticated with an access token')
-  }
-
-  if (sanityClient.config().useCdn) {
-    console.log('sanityClient is using the default CDN authentication')
-  } else {
-    console.log('sanityClient is using a custom authentication method')
-  }
-
-  if (!post) {
-    return { notFound: true }
-  }
+  // console.log(post)
 
   const shopstoryClient = new ShopstoryClient(shopstoryConfig, {
     locale: 'en',
@@ -91,34 +86,29 @@ export const getStaticProps = async ({ params, preview = false }) => {
   })
 
   if (post.shopstoryRawContent != null && post.shopstoryRawContent.length > 0) {
-    // For each object inside the shopstoryRawContent array call shopstoryClient.add(obj.content.en) 👇🏻
-
-    // Multiple Shopstory Blocks 👇🏻
     const renderableContent = post.shopstoryRawContent.map((obj) =>
       shopstoryClient.add(obj.content.en)
     )
 
-    // Single Shopstory Block 👇🏻
-    // const renderableContent = shopstoryClient.add(
-    //   post.shopstoryRawContent[0].content.en
-    // )
-
     const meta = await shopstoryClient.build()
 
+    // This works as long as you are not in preview mode! 🤔
     return {
       props: {
         preview,
         data: {
           post,
-          params: {},
+          params: { slug },
         },
         renderableContent,
         meta,
       },
       revalidate: 10,
     }
+    // { params: { slug: 'ede-staal-mijn-groningen-mien-grunne' } }
   }
 
+  // If post.shopstoryRawContent is empty!
   return {
     props: {
       preview,
@@ -142,7 +132,7 @@ export default function Page({
 }) {
   return preview ? (
     <PreviewSuspense fallback='Loading...'>
-      <PreviewPost query={query} params={data.params} />
+      <PreviewPost query={draftQuery ?? publishedQuery} params={data.params} />
     </PreviewSuspense>
   ) : (
     <>

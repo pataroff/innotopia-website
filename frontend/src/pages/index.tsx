@@ -6,7 +6,7 @@ import Posts from '../components/Posts'
 import { PreviewSuspense } from 'next-sanity/preview'
 
 const PreviewPosts = lazy(() => import('../components/PreviewPosts'))
-const query = groq`*[_type == "post" && publishedAt < now()] | order(publishedAt desc)`
+const query = groq`*[_type == "post" && !(_id in path('drafts.**')) && publishedAt < now()] | order(publishedAt desc)`
 
 export const getStaticProps = async ({ preview = false }) => {
   if (preview) {

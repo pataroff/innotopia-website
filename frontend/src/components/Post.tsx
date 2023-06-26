@@ -33,7 +33,16 @@ const ptComponents = {
 }
 
 const Post = ({ post, renderableContent, meta }) => {
-  const { title, mainImage, categories, name, authorImage, body } = post
+  const {
+    _id,
+    title,
+    mainImage,
+    categories,
+    name,
+    authorImage,
+    body,
+    shopstoryRawContent,
+  } = post
 
   return (
     <>
@@ -71,7 +80,7 @@ const Post = ({ post, renderableContent, meta }) => {
 
         <PortableText value={body} components={ptComponents} />
 
-        {renderableContent && meta && (
+        {shopstoryRawContent != null && (
           <DemoShopstoryProvider>
             <ShopstoryMetadataProvider meta={meta}>
               {renderableContent.map((renderableContent, index) => (

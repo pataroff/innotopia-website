@@ -10,6 +10,7 @@ export default function PreviewPost({
   params: { [key: string]: any }
 }) {
   const data = usePreview(null, query, params)
+  console.log(data)
 
   return (
     <>
