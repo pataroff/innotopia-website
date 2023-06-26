@@ -8,7 +8,7 @@ import { sanityClient } from '../../lib/sanity.client'
 import Post from '../../components/Post'
 
 // Shopstory Plugin
-import { ShopstoryClient } from '@shopstory/core'
+import { RenderableContent, Metadata, ShopstoryClient } from '@shopstory/core'
 import { shopstoryConfig } from '../../../src/shopstory/config'
 
 const PreviewPost = lazy(() => import('../../components/PreviewPost'))
@@ -78,7 +78,7 @@ export const getStaticProps = async ({ params, preview = false }) => {
 
   const post = await sanityClient.fetch(query, { slug })
 
-  // console.log(post)
+  console.log(post)
 
   const shopstoryClient = new ShopstoryClient(shopstoryConfig, {
     locale: 'en',
@@ -128,11 +128,18 @@ export default function Page({
 }: {
   preview: Boolean
   data: { post: SanityDocument; params: {} }
+  renderableContent: RenderableContent
+  meta: Metadata
   // Add type declarations for renderableContent and meta!
 }) {
   return preview ? (
     <PreviewSuspense fallback='Loading...'>
-      <PreviewPost query={draftQuery ?? publishedQuery} params={data.params} />
+      <PreviewPost
+        query={publishedQuery}
+        params={data.params}
+        renderableContent={renderableContent}
+        meta={meta}
+      />
     </PreviewSuspense>
   ) : (
     <>
