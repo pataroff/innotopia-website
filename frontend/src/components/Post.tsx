@@ -63,9 +63,7 @@ const Post = ({ post, renderableContent, meta }) => {
         {categories && (
           <ul className='ml-2'>
             {categories.map((category) => (
-              <li key={category} className=''>
-                {category}
-              </li>
+              <li key={category}>{category}</li>
             ))}
           </ul>
         )}
