@@ -1,6 +1,12 @@
 import Nav from '../components/Nav'
+import Main from '../components/Main'
 
 const index = () => {
-  return <div></div>
+  return (
+    <>
+      <Nav />
+      <Main />
+    </>
+  )
 }
 export default index

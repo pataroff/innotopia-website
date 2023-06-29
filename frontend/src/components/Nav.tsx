@@ -1,7 +1,6 @@
+import Link from 'next/link'
 import Image from 'next/image'
 import innotopiaLogo from '../../public/innotopia-logo-white.svg'
-
-import Link from 'next/link'
 
 const Nav = () => {
   return (
@@ -29,7 +28,7 @@ const Nav = () => {
             <div className='inline-block relative'>
               <li className='relative'>
                 <Link
-                  href=''
+                  href='/'
                   className='inline-block h-full w-full hover:text-lime-500'
                 >
                   About
@@ -40,7 +39,7 @@ const Nav = () => {
             <div className='inline-block relative'>
               <li className='relative'>
                 <Link
-                  href=''
+                  href='/'
                   className='inline-block h-full w-full hover:text-lime-500'
                 >
                   Services
@@ -51,7 +50,7 @@ const Nav = () => {
             <div className='inline-block relative'>
               <li className='relative'>
                 <Link
-                  href=''
+                  href='/'
                   className='inline-block h-full w-full hover:text-lime-500'
                 >
                   Projects
@@ -62,7 +61,7 @@ const Nav = () => {
             <div className='inline-block relative'>
               <li className='relative'>
                 <Link
-                  href=''
+                  href='/'
                   className='inline-block h-full w-full hover:text-lime-500'
                 >
                   Testimonials
@@ -84,7 +83,7 @@ const Nav = () => {
             <div className='inline-block relative'>
               <li className='relative'>
                 <Link
-                  href=''
+                  href='/'
                   className='inline-block h-full w-full hover:text-lime-500'
                 >
                   Events
