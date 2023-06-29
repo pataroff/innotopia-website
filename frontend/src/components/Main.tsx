@@ -30,7 +30,7 @@ const Main = () => {
             </div>
           </div>
           {/* Hero Container */}
-          {/* h-56 solves mobile responsiveness for now! */}
+          {/* h-56 is not ideal, but it solves mobile responsiveness for now! */}
           <div className='relative h-56 md:w-full lg:w-96 my-24 p-4'>
             {/* Hero Image Container */}
             <div className='absolute m-0 z-10'>
