@@ -1,4 +1,5 @@
 import { Poppins } from 'next/font/google'
+import Nav from './Nav'
 
 const poppins = Poppins({
   weight: ['400', '500', '600', '700', '800'],
@@ -9,6 +10,7 @@ const poppins = Poppins({
 const Layout = ({ children }) => {
   return (
     <div className={`${poppins.variable}`}>
+      <Nav />
       <main>{children}</main>
     </div>
   )

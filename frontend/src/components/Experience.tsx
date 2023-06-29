@@ -12,7 +12,7 @@ const Experience = () => {
       <div className='flex flex-col justify-center items-center md:my-8 md:mx-32'>
         {/* Text Container */}
         <div>
-          <h3 className='font-poppins font-bold uppercase mb-16'>
+          <h3 className='font-poppins font-bold text-xs uppercase mb-16'>
             Companies that have innovated with us
           </h3>
         </div>
