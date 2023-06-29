@@ -9,7 +9,7 @@ const Experience = () => {
   return (
     <section>
       {/* Main Wrapper */}
-      <div className='flex flex-col justify-center items-center md:my-8 md:mx-32'>
+      <div className='flex flex-col justify-center items-center md:my-20 md:mx-32'>
         {/* Text Container */}
         <div>
           <h3 className='font-poppins font-bold text-xs uppercase mb-16'>
