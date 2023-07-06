@@ -17,7 +17,7 @@ const Experience = () => {
           </h3>
         </div>
         {/* Companies Container */}
-        <div className='flex flex-col gap-y-24 md:flex-row justify-center items-center gap-x-20'>
+        <div className='flex flex-col gap-y-24 md:flex-row justify-center items-center gap-x-20 2xl:gap-x-44'>
           {/* Company Logo */}
           <div>
             <Image

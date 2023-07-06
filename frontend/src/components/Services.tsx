@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faLightbulb,
@@ -10,9 +9,9 @@ const Services = () => {
   return (
     <section>
       {/* Main Wrapper */}
-      <div className='flex flex-col justify-center items-center'>
+      <div className='flex flex-col justify-center items-center my-8'>
         {/* Text Container */}
-        <div className='relative my-24'>
+        <div className='relative mb-24'>
           <h1 className='relative font-poppins text-3xl font-bold z-10'>
             How We Can Help You
           </h1>
@@ -20,7 +19,7 @@ const Services = () => {
           <div className='absolute bg-lime-600 z-0 h-2'></div>
         </div>
         {/* Services Wrapper */}
-        <div className='flex flex-col font-poppins justify-center items-center gap-y-32'>
+        <div className='flex flex-col font-poppins justify-center items-center gap-y-32 2xl:px-72'>
           {/* Service Item */}
           <div className='flex flex-col-reverse md:flex-row gap-x-36 px-24'>
             {/* Service Text */}
