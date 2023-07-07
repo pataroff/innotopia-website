@@ -9,9 +9,9 @@ const Main = () => {
     <>
       <section>
         {/* Main Wrapper */}
-        <div className='flex flex-col-reverse md:flex-row justify-center gap-x-16'>
+        <div className='flex flex-col-reverse md:flex-row justify-center items-center gap-x-16'>
           {/* Text Container */}
-          <div className='flex flex-col font-poppins gap-y-2 my-24 p-24'>
+          <div className='flex flex-col font-poppins gap-y-4 p-24'>
             <h3 className='text-sm font-semilight'>
               Innovate your company with Innotopia
             </h3>
@@ -30,15 +30,22 @@ const Main = () => {
             </div>
           </div>
           {/* Hero Container */}
-          {/* h-56 is not ideal, but it solves mobile responsiveness for now! */}
-          <div className='relative h-56 md:w-full lg:w-96 my-24 p-4'>
-            {/* Hero Image Container */}
-            <div className='absolute m-0 z-10'>
-              <Image priority src={hexTile} alt='Hex Tile' />
+          <div className='relative h-[600px] w-full max-w-full'>
+            <div className='absolute inset-0 z-10 p-14 pr-0 flex justify-end'>
+              <Image
+                priority
+                className='h-full w-full max-w-lg object-scale-down'
+                src={hexTile}
+                alt='Hex Tile'
+              />
             </div>
-            {/* Background Image Container */}
-            <div className='absolute right-0 z-0'>
-              <Image priority src={bgAccent} alt='Background Image' />
+            <div className='absolute inset-0 z-0 p-14 pr-0 flex justify-end'>
+              <Image
+                priority
+                className='h-full w-full max-w-lg object-scale-down object-right'
+                src={bgAccent}
+                alt='Background Image'
+              />
             </div>
           </div>
         </div>

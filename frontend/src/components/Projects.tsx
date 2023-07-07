@@ -15,7 +15,7 @@ const Projects = () => {
           <h2 className='text-3xl font-bold'>What we do</h2>
         </div>
         {/* Rounded Box Wrapper */}
-        <div className='px-24 py-8'>
+        <div className='px-40 py-8'>
           {/* Rounded Box Container */}
           <div className='rounded-md drop-shadow-md bg-slate-50 w-full h-full p-8'>
             {/* Projects Wrapper */}

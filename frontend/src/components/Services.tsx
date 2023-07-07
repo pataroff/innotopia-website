@@ -23,7 +23,7 @@ const Services = () => {
           {/* Service Item */}
           <div className='flex flex-col-reverse md:flex-row gap-x-36 px-24'>
             {/* Service Text */}
-            <div>
+            <div className='flex flex-col gap-y-4'>
               <h2 className='text-2xl font-bold'>
                 Custom interactive products for you and your business
               </h2>
@@ -43,7 +43,7 @@ const Services = () => {
           {/* Service Item */}
           <div className='flex flex-col-reverse md:flex-row-reverse gap-x-36 px-24'>
             {/* Service Text */}
-            <div>
+            <div className='flex flex-col gap-y-4'>
               <h2 className='text-2xl font-bold'>
                 Kickstart your career in the industry
               </h2>
@@ -63,7 +63,7 @@ const Services = () => {
           {/* Service Item */}
           <div className='flex flex-col-reverse md:flex-row gap-x-36 px-24'>
             {/* Service Text */}
-            <div>
+            <div className='flex flex-col gap-y-4'>
               <h2 className='text-2xl font-bold'>
                 Gamification and game-based experiences
               </h2>

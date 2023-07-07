@@ -8,12 +8,12 @@ const Nav = () => {
       {/* Navbar Container */}
       <div className='bg-gray-900 w-full'>
         {/* Navbar (tablets + desktop) */}
-        <nav className='hidden px-8 py-4 md:flex md:justify-center md:gap-x-64 xl:max-w-screen-2xl xl:mx-auto'>
+        <nav className='hidden p-4 md:flex md:justify-center md:gap-x-64 xl:max-w-screen-2xl xl:mx-auto'>
           {/* Logo */}
           <div className='shrink-0'>
             <Link href='/'>
               <Image
-                className='"w-24 xl:w-32"'
+                className='w-24 h-12 xl:w-32'
                 priority
                 src={innotopiaLogo}
                 alt='Innotopia'
