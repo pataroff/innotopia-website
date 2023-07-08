@@ -11,8 +11,8 @@ const Services = () => {
       {/* Main Wrapper */}
       <div className='flex flex-col justify-center items-center'>
         {/* Text Container */}
-        <div className='relative mb-24'>
-          <h1 className='relative font-poppins text-3xl font-bold z-10'>
+        <div>
+          <h1 className='relative font-poppins md:text-2xl lg:text-3xl text-2xl font-bold z-10 p-14'>
             How We Can Help You
           </h1>
           {/* Underline Effect */}
@@ -21,7 +21,7 @@ const Services = () => {
         {/* Services Wrapper */}
         <div className='flex flex-col container font-poppins justify-center items-center gap-y-32 p-14'>
           {/* Service Item */}
-          <div className='flex flex-col-reverse md:flex-row gap-x-40 px-24'>
+          <div className='flex flex-col-reverse md:flex-row gap-x-40 gap-y-16 px-24'>
             {/* Service Text */}
             <div className='flex flex-col gap-y-4'>
               <h2 className='text-2xl font-bold'>
@@ -41,7 +41,7 @@ const Services = () => {
           </div>
 
           {/* Service Item */}
-          <div className='flex flex-col-reverse md:flex-row-reverse gap-x-36 px-24'>
+          <div className='flex flex-col-reverse md:flex-row-reverse gap-x-36 gap-y-16 px-24'>
             {/* Service Text */}
             <div className='flex flex-col gap-y-4'>
               <h2 className='text-2xl font-bold'>
@@ -61,7 +61,7 @@ const Services = () => {
           </div>
 
           {/* Service Item */}
-          <div className='flex flex-col-reverse md:flex-row gap-x-36 px-24'>
+          <div className='flex flex-col-reverse md:flex-row gap-x-36 gap-y-16 px-24'>
             {/* Service Text */}
             <div className='flex flex-col gap-y-4'>
               <h2 className='text-2xl font-bold'>

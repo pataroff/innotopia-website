@@ -9,7 +9,7 @@ const Experience = () => {
   return (
     <section>
       {/* Main Wrapper */}
-      <div className='flex flex-col justify-center items-center px-14 pt-0 pb-24'>
+      <div className='flex flex-col justify-center items-center'>
         {/* Text Container */}
         <div>
           <h3 className='font-poppins text-center px-14 py-12 font-bold text-sm uppercase'>
@@ -17,7 +17,7 @@ const Experience = () => {
           </h3>
         </div>
         {/* Companies Container */}
-        <div className='flex flex-col gap-y-24 md:flex-row justify-center items-center gap-x-16 2xl:gap-x-40 px-24'>
+        <div className='flex flex-col gap-y-24 md:flex-row justify-center items-center gap-x-16 2xl:gap-x-40 px-24 py-14'>
           {/* Company Logo */}
           <div>
             <Image
