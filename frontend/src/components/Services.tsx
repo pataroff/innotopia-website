@@ -9,7 +9,7 @@ const Services = () => {
   return (
     <section>
       {/* Main Wrapper */}
-      <div className='flex flex-col justify-center items-center my-8'>
+      <div className='flex flex-col justify-center items-center'>
         {/* Text Container */}
         <div className='relative mb-24'>
           <h1 className='relative font-poppins text-3xl font-bold z-10'>
@@ -19,9 +19,9 @@ const Services = () => {
           <div className='absolute bg-lime-600 z-0 h-2'></div>
         </div>
         {/* Services Wrapper */}
-        <div className='flex flex-col font-poppins justify-center items-center gap-y-32 2xl:px-72'>
+        <div className='flex flex-col container font-poppins justify-center items-center gap-y-32 p-14'>
           {/* Service Item */}
-          <div className='flex flex-col-reverse md:flex-row gap-x-36 px-24'>
+          <div className='flex flex-col-reverse md:flex-row gap-x-40 px-24'>
             {/* Service Text */}
             <div className='flex flex-col gap-y-4'>
               <h2 className='text-2xl font-bold'>
@@ -35,7 +35,7 @@ const Services = () => {
               </p>
             </div>
             {/* Service Icon */}
-            <div className='mb-16 px-8'>
+            <div className='flex justify-center items-center'>
               <FontAwesomeIcon icon={faLightbulb} width={150} height={150} />
             </div>
           </div>
@@ -55,7 +55,7 @@ const Services = () => {
               </p>
             </div>
             {/* Service Icon */}
-            <div className='mb-16 px-8'>
+            <div className='flex justify-center items-center'>
               <FontAwesomeIcon icon={faRocket} width={150} height={150} />
             </div>
           </div>
@@ -75,7 +75,7 @@ const Services = () => {
               </p>
             </div>
             {/* Service Icon */}
-            <div className='mb-16 px-8'>
+            <div className='flex justify-center items-center'>
               <FontAwesomeIcon icon={faGamepad} width={150} height={150} />
             </div>
           </div>

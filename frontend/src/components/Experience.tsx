@@ -9,15 +9,15 @@ const Experience = () => {
   return (
     <section>
       {/* Main Wrapper */}
-      <div className='flex flex-col justify-center items-center p-16'>
+      <div className='flex flex-col justify-center items-center px-14 pt-0 pb-24'>
         {/* Text Container */}
         <div>
-          <h3 className='font-poppins text-center p-4 font-bold text-xs uppercase mb-16'>
+          <h3 className='font-poppins text-center px-14 py-12 font-bold text-sm uppercase'>
             Companies that have innovated with us
           </h3>
         </div>
         {/* Companies Container */}
-        <div className='flex flex-col gap-y-24 md:flex-row justify-center items-center gap-x-16 2xl:gap-x-44'>
+        <div className='flex flex-col gap-y-24 md:flex-row justify-center items-center gap-x-16 2xl:gap-x-40 px-24'>
           {/* Company Logo */}
           <div>
             <Image

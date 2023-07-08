@@ -11,7 +11,7 @@ const Main = () => {
         {/* Main Wrapper */}
         <div className='flex flex-col-reverse md:flex-row justify-center items-center gap-x-16'>
           {/* Text Container */}
-          <div className='flex flex-col font-poppins gap-y-4 p-24'>
+          <div className='flex flex-col w-full container font-poppins gap-y-4 p-24 ml-14'>
             <h3 className='text-sm font-semilight'>
               Innovate your company with Innotopia
             </h3>
@@ -30,7 +30,7 @@ const Main = () => {
             </div>
           </div>
           {/* Hero Container */}
-          <div className='relative h-[600px] w-full max-w-full'>
+          <div className='relative container h-[600px] w-full'>
             <div className='absolute inset-0 z-10 p-14 pr-0 flex justify-end'>
               <Image
                 priority
