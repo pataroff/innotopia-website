@@ -9,15 +9,15 @@ const Projects = () => {
   return (
     <section>
       {/* Main Wrapper */}
-      <div className='my-8'>
+      <div className='flex flex-col justify-center items-center p-14 overflow-x-hidden'>
         {/* Heading Container */}
-        <div className='flex flex-col justify-center items-center font-poppins my-4'>
+        <div className='flex flex-col justify-center items-center font-poppins py-4'>
           <h2 className='text-3xl font-bold'>What we do</h2>
         </div>
         {/* Rounded Box Wrapper */}
         <div className='px-40 py-8'>
           {/* Rounded Box Container */}
-          <div className='rounded-md drop-shadow-md bg-slate-50 w-full h-full p-8'>
+          <div className='rounded-md drop-shadow-md bg-slate-50 w-full h-full container p-8'>
             {/* Projects Wrapper */}
             <div className='flex flex-col justify-center items-center gap-y-8'>
               {/* Project Item */}
@@ -33,7 +33,7 @@ const Projects = () => {
                   />
                 </div>
                 {/* Project Text Wrapper */}
-                <div className='flex flex-col font-poppins p-12 gap-y-4 w-full'>
+                <div className='flex flex-col justify-center font-poppins p-12 gap-y-4 w-full'>
                   {/* Project Title */}
                   <h3 className='text-xl font-bold'>
                     Ede Staal: mijn Groningen - mien Grunne
@@ -47,7 +47,7 @@ const Projects = () => {
                     aspernatur tenetur incidunt inventore illo quidem.
                   </p>
                   {/* Project CTA */}
-                  <div className='flex justify-center items-center mt-4 mb-12 rounded-xl bg-lime-600 w-40 h-10'>
+                  <div className='flex justify-center items-center rounded-xl bg-lime-600 w-40 h-10'>
                     <Link href='/'>
                       <span className='font-bold'>View Project</span>
                     </Link>
@@ -68,7 +68,7 @@ const Projects = () => {
                   />
                 </div>
                 {/* Project Text Wrapper */}
-                <div className='flex flex-col font-poppins p-12 gap-y-4 w-full'>
+                <div className='flex flex-col justify-center font-poppins p-12 gap-y-4 w-full'>
                   {/* Project Title */}
                   <h3 className='text-xl font-bold'>3D-scans of churches</h3>
                   {/* Project Description */}
@@ -80,7 +80,7 @@ const Projects = () => {
                     aspernatur tenetur incidunt inventore illo quidem.
                   </p>
                   {/* Project CTA */}
-                  <div className='flex justify-center items-center mt-4 mb-12 rounded-xl bg-lime-600 w-40 h-10'>
+                  <div className='flex justify-center items-center rounded-xl bg-lime-600 w-40 h-10'>
                     <Link href='/'>
                       <span className='font-bold'>View Project</span>
                     </Link>
@@ -95,13 +95,13 @@ const Projects = () => {
                   {/* Project Image */}
                   <Image
                     src={arragnedRealismProjectImage}
-                    alt='Ede Staal Project Image'
+                    alt='Arranged Realism Project Image'
                     className='relative object-cover w-full h-full'
                     style={{ objectPosition: '40% 50%' }}
                   />
                 </div>
                 {/* Project Text Wrapper */}
-                <div className='flex flex-col font-poppins p-12 gap-y-4 w-full'>
+                <div className='flex flex-col justify-center font-poppins p-12 gap-y-4 w-full'>
                   {/* Project Title */}
                   <h3 className='text-xl font-bold'>
                     Arranged Realism - Art in Games
@@ -115,7 +115,7 @@ const Projects = () => {
                     aspernatur tenetur incidunt inventore illo quidem.
                   </p>
                   {/* Project CTA */}
-                  <div className='flex justify-center items-center mt-4 mb-12 rounded-xl bg-lime-600 w-40 h-10'>
+                  <div className='flex justify-center items-center rounded-xl bg-lime-600 w-40 h-10'>
                     <Link href='/'>
                       <span className='font-bold'>View Project</span>
                     </Link>

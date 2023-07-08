@@ -10,7 +10,7 @@ const Testimonials = () => {
   return (
     <section>
       {/* Main Wrapper */}
-      <div>
+      <div className='flex flex-col justify-center items-center p-14'>
         {/* Heading Container */}
         <div className='flex justify-center items-center font-poppins p-14'>
           <h2 className='font-bold text-3xl'>What our customers say</h2>
@@ -19,7 +19,7 @@ const Testimonials = () => {
         {/* Testimonials Wrapper */}
         <div className='flex flex-col gap-y-6 md:flex-row justify-center items-center gap-x-6 p-14 pb-48'>
           {/* Testimonial Item */}
-          <div className='rounded-md bg-slate-100 h-full w-72'>
+          <div className='rounded-md bg-slate-100 h-full w-full'>
             {/* Person Image */}
             <div className='relative rounded-full overflow-hidden bg-slate-500 w-16 h-16 -mt-6 ml-8'>
               <Image
@@ -63,7 +63,7 @@ const Testimonials = () => {
           </div>
 
           {/* Testimonial Item */}
-          <div className='rounded-md bg-slate-100 h- w-72'>
+          <div className='rounded-md bg-slate-100 h-full w-full'>
             {/* Person Image */}
             <div className='relative rounded-full overflow-hidden bg-slate-500 w-16 h-16 -mt-6 ml-8'>
               <Image
@@ -108,7 +108,7 @@ const Testimonials = () => {
           </div>
 
           {/* Testimonial Item */}
-          <div className='rounded-md bg-slate-100 h-full w-72'>
+          <div className='rounded-md bg-slate-100 h-full w-full'>
             {/* Person Image */}
             <div className='relative rounded-full overflow-hidden bg-slate-500 w-16 h-16 -mt-6 ml-8'>
               <Image
