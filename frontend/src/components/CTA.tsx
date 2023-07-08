@@ -5,7 +5,7 @@ const CTA = () => {
     <section>
       {/* Main Wrapper */}
       {/* overflow-x-hidden fixes the weird white space on the right side in mobile view! */}
-      <div className='flex flex-col justify-center items-center bg-gray-900 w-full overflow-x-hidden'>
+      <div className='flex flex-col justify-center items-center bg-dark-blue w-full overflow-x-hidden'>
         {/* Text Wrapper */}
         <div className='flex flex-col justify-center items-center text-center font-poppins p-14'>
           <h1 className='font-poppins text-white md:text-2xl lg:text-3xl text-2xl font-bold z-10 py-4'>
@@ -20,7 +20,7 @@ const CTA = () => {
             recusandae sed, enim velit et fuga suscipit labore consequuntur!
           </p>
           {/* CTA */}
-          <div className='flex justify-center items-center rounded-xl bg-lime-600 w-40 h-10'>
+          <div className='flex justify-center items-center rounded-xl bg-lime-green w-40 h-10'>
             <Link href='/'>
               <span className='uppercase font-bold'>Get in touch</span>
             </Link>

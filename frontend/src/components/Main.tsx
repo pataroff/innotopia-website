@@ -24,7 +24,7 @@ const Main = () => {
               through the limitless possiblities of creative digital solutions?
             </p>
             {/* CTA */}
-            <div className='flex justify-center items-center mt-4 rounded-xl bg-lime-600 w-40 h-10'>
+            <div className='flex justify-center items-center mt-4 rounded-xl bg-lime-green w-40 h-10'>
               <Link href='/'>
                 <span className='uppercase font-bold'>Get in touch</span>
               </Link>

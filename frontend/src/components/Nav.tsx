@@ -6,7 +6,7 @@ const Nav = () => {
   return (
     <>
       {/* Navbar Container */}
-      <div className='bg-gray-900 w-full'>
+      <div className='bg-dark-blue w-full'>
         {/* Navbar (tablets + desktop) */}
         <nav className='hidden p-4 md:flex md:justify-center md:gap-x-64 xl:max-w-screen-2xl xl:mx-auto'>
           {/* Logo */}
@@ -29,7 +29,7 @@ const Nav = () => {
               <li className='relative'>
                 <Link
                   href='/'
-                  className='inline-block h-full w-full hover:text-lime-500'
+                  className='inline-block h-full w-full hover:text-lime-green'
                 >
                   About
                 </Link>
@@ -40,7 +40,7 @@ const Nav = () => {
               <li className='relative'>
                 <Link
                   href='/'
-                  className='inline-block h-full w-full hover:text-lime-500'
+                  className='inline-block h-full w-full hover:text-lime-green'
                 >
                   Services
                 </Link>
@@ -51,7 +51,7 @@ const Nav = () => {
               <li className='relative'>
                 <Link
                   href='/'
-                  className='inline-block h-full w-full hover:text-lime-500'
+                  className='inline-block h-full w-full hover:text-lime-green'
                 >
                   Projects
                 </Link>
@@ -62,7 +62,7 @@ const Nav = () => {
               <li className='relative'>
                 <Link
                   href='/'
-                  className='inline-block h-full w-full hover:text-lime-500'
+                  className='inline-block h-full w-full hover:text-lime-green'
                 >
                   Testimonials
                 </Link>
@@ -73,7 +73,7 @@ const Nav = () => {
               <li className='relative'>
                 <Link
                   href='/blog'
-                  className='inline-block h-full w-full hover:text-lime-500'
+                  className='inline-block h-full w-full hover:text-lime-green'
                 >
                   Blog
                 </Link>
@@ -84,7 +84,7 @@ const Nav = () => {
               <li className='relative'>
                 <Link
                   href='/'
-                  className='inline-block h-full w-full hover:text-lime-500'
+                  className='inline-block h-full w-full hover:text-lime-green'
                 >
                   Events
                 </Link>
