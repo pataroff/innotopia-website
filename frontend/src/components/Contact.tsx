@@ -3,9 +3,9 @@ import Link from 'next/link'
 const Contact = () => {
   return (
     <section id='contact'>
-      <div className='flex justify-center items-center bg-dark-blue w-full h-full'>
+      <div className='flex justify-center items-center bg-dark-blue w-full h-full overflow-x-hidden'>
         {/* Main Wrapper */}
-        <div className='flex flex-col md:flex-row justify-center gap-x-8 gap-y-16 items-center py-16 md:px-32 px-12 w-full container'>
+        <div className='flex flex-col md:flex-row justify-center gap-x-8 gap-y-16 items-center py-16 lg:px-40 px-12 w-full container'>
           {/* Left Container Wrapper */}
           <div className='flex flex-col justify-center md:items-start items-center font-poppins w-full gap-y-6 container'>
             {/* Heading Container */}
@@ -57,7 +57,7 @@ const Contact = () => {
                     </div>
 
                     <div className='flex flex-col'>
-                      <label className='text-sm font-semibold px-1.5 py-3'>
+                      <label className='text-sm font-semibold px-1.5 py-3 whitespace-nowrap'>
                         Phone (optional)
                       </label>
                       <input
