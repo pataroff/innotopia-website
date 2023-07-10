@@ -20,11 +20,11 @@ const CTA = () => {
             recusandae sed, enim velit et fuga suscipit labore consequuntur!
           </p>
           {/* CTA */}
-          <div className='flex justify-center items-center rounded-xl bg-lime-green w-40 h-10'>
-            <Link href='/'>
+          <Link href='#contact'>
+            <div className='flex justify-center items-center rounded-xl bg-lime-green w-40 h-10'>
               <span className='uppercase font-bold'>Get in touch</span>
-            </Link>
-          </div>
+            </div>
+          </Link>
         </div>
       </div>
     </section>
