@@ -16,7 +16,7 @@ const index = () => {
       <CTA />
       <Projects />
       <Testimonials />
-      {/* <Contact /> */}
+      <Contact />
       {/* <Footer /> */}
     </>
   )
