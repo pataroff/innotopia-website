@@ -74,8 +74,8 @@ const Contact = () => {
                   </label>
                   <textarea
                     className='bg-slate-200 rounded-xl outline-none p-2'
-                    cols='10'
-                    rows='10'
+                    cols='5'
+                    rows='5'
                   ></textarea>
                   {/* Send Button */}
 
