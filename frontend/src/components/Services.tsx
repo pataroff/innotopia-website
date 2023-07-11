@@ -7,7 +7,7 @@ import {
 
 const Services = () => {
   return (
-    <section>
+    <section id='services'>
       {/* Main Wrapper */}
       <div className='flex flex-col justify-center items-center overflow-x-hidden'>
         {/* Text Container */}

@@ -10,7 +10,7 @@ import museumBelvedereLogo from '../../public/museum-belvedere-logo.png'
 
 const Testimonials = () => {
   return (
-    <section>
+    <section id='testimonials'>
       {/* Main Wrapper */}
       <div className='flex flex-col justify-center items-center p-14 overflow-x-hidden'>
         {/* Heading Container */}

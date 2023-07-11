@@ -7,7 +7,7 @@ import arragnedRealismProjectImage from '../../public/arranged-realism-project-i
 
 const Projects = () => {
   return (
-    <section>
+    <section id='projects'>
       {/* Main Wrapper */}
       <div className='flex flex-col justify-center items-center overflow-x-hidden'>
         {/* Heading Container */}

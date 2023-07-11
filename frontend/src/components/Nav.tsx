@@ -17,9 +17,9 @@ const Nav = () => {
   return (
     <>
       {/* Navbar Container */}
-      <div className='bg-dark-blue w-full overflow-x-hidden'>
+      <div className='bg-dark-blue sticky top-0 w-full z-20'>
         {/* Navbar (mobile + tablet) */}
-        <nav className='md:hidden flex flex-col justify-center'>
+        <nav className='md:hidden'>
           {/* Main Wrapper */}
           <div className='flex flex-row justify-center py-4 px-8'>
             {/* Logo */}
@@ -77,19 +77,19 @@ const Nav = () => {
                   <span>About</span>
                 </Link>
 
-                <Link href='/'>
+                <Link href='#services'>
                   <span>Services</span>
                 </Link>
 
-                <Link href='/'>
+                <Link href='#projects'>
                   <span>Projects</span>
                 </Link>
 
-                <Link href='/'>
+                <Link href='#testimonials'>
                   <span>Testimonials</span>
                 </Link>
 
-                <Link href='/'>
+                <Link href='/blog'>
                   <span>Blog</span>
                 </Link>
 
@@ -132,7 +132,7 @@ const Nav = () => {
             <div className='inline-block relative'>
               <li className='relative'>
                 <Link
-                  href='/'
+                  href='#services'
                   className='inline-block h-full w-full hover:text-lime-green'
                 >
                   Services
@@ -143,7 +143,7 @@ const Nav = () => {
             <div className='inline-block relative'>
               <li className='relative'>
                 <Link
-                  href='/'
+                  href='#projects'
                   className='inline-block h-full w-full hover:text-lime-green'
                 >
                   Projects
@@ -154,7 +154,7 @@ const Nav = () => {
             <div className='inline-block relative'>
               <li className='relative'>
                 <Link
-                  href='/'
+                  href='#testimonials'
                   className='inline-block h-full w-full hover:text-lime-green'
                 >
                   Testimonials
