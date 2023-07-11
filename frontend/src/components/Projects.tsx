@@ -49,11 +49,11 @@ const Projects = () => {
                     aspernatur tenetur incidunt inventore illo quidem.
                   </p>
                   {/* Project CTA */}
-                  <div className='flex justify-center items-center rounded-2xl bg-lime-green w-40 h-10'>
-                    <Link href='/'>
+                  <Link href='/post/ede-staal-mijn-groningen-mien-grunne'>
+                    <div className='flex justify-center items-center rounded-2xl bg-lime-green w-40 h-10'>
                       <span className='font-bold'>View Project</span>
-                    </Link>
-                  </div>
+                    </div>
+                  </Link>
                 </div>
               </div>
 
@@ -82,11 +82,11 @@ const Projects = () => {
                     aspernatur tenetur incidunt inventore illo quidem.
                   </p>
                   {/* Project CTA */}
-                  <div className='flex justify-center items-center rounded-2xl bg-lime-green w-40 h-10'>
-                    <Link href='/'>
+                  <Link href='/post/3d-scans-of-churches'>
+                    <div className='flex justify-center items-center rounded-2xl bg-lime-green w-40 h-10'>
                       <span className='font-bold'>View Project</span>
-                    </Link>
-                  </div>
+                    </div>
+                  </Link>
                 </div>
               </div>
 
@@ -117,11 +117,11 @@ const Projects = () => {
                     aspernatur tenetur incidunt inventore illo quidem.
                   </p>
                   {/* Project CTA */}
-                  <div className='flex justify-center items-center rounded-2xl bg-lime-green w-40 h-10'>
-                    <Link href='/'>
+                  <Link href='/post/arranged-realism'>
+                    <div className='flex justify-center items-center rounded-2xl bg-lime-green w-40 h-10'>
                       <span className='font-bold'>View Project</span>
-                    </Link>
-                  </div>
+                    </div>
+                  </Link>
                 </div>
               </div>
             </div>

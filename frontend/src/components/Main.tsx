@@ -9,7 +9,6 @@ const Main = () => {
     <>
       <section>
         {/* Main Wrapper */}
-        {/* overflow-x-hidden fixes the weird white space on the right side in mobile view! */}
         <div className='flex flex-col-reverse md:flex-row justify-center items-center overflow-x-hidden'>
           {/* Text Container */}
           <div className='flex flex-col font-poppins gap-y-4 p-24 lg:ml-14'>

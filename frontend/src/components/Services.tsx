@@ -9,7 +9,7 @@ const Services = () => {
   return (
     <section>
       {/* Main Wrapper */}
-      <div className='flex flex-col justify-center items-center'>
+      <div className='flex flex-col justify-center items-center overflow-x-hidden'>
         {/* Text Container */}
         <div>
           <h1 className='relative font-poppins md:text-2xl lg:text-3xl text-2xl font-bold z-10 p-14'>
