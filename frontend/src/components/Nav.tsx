@@ -19,7 +19,7 @@ const Nav = () => {
       {/* Navbar Container */}
       <div className='bg-dark-blue sticky top-0 w-full z-20'>
         {/* Navbar (mobile + tablet) */}
-        <nav className='md:hidden'>
+        <nav className='lg:hidden'>
           {/* Main Wrapper */}
           <div className='flex flex-row justify-center py-4 px-8'>
             {/* Logo */}
@@ -101,7 +101,7 @@ const Nav = () => {
           )}
         </nav>
         {/* Navbar (desktop) */}
-        <nav className='hidden p-4 md:flex md:justify-center md:gap-x-64 xl:max-w-screen-2xl xl:mx-auto'>
+        <nav className='hidden p-4 lg:flex lg:justify-center lg:gap-x-64 xl:max-w-screen-2xl xl:mx-auto'>
           {/* Logo */}
           <div className='shrink-0'>
             <Link href='/'>

@@ -12,7 +12,7 @@ const Projects = () => {
       <div className='flex flex-col justify-center items-center overflow-x-hidden'>
         {/* Heading Container */}
         <div className='flex flex-col justify-center items-center font-poppins py-14'>
-          <h2 className='md:text-2xl lg:text-3xl text-2xl font-bold z-10 py-4'>
+          <h2 className='lg:text-3xl text-2xl font-bold z-10 py-4'>
             What we do
           </h2>
         </div>
@@ -23,9 +23,9 @@ const Projects = () => {
             {/* Projects Wrapper */}
             <div className='flex flex-col justify-center items-center gap-y-8'>
               {/* Project Item */}
-              <div className='flex flex-col md:flex-row gap-x-8'>
+              <div className='flex flex-col lg:flex-row gap-x-8'>
                 {/* Project Image Container */}
-                <div className='rounded-2xl drop-shadow-md bg-slate-100 overflow-hidden w-full h-96 md:m-14'>
+                <div className='rounded-2xl drop-shadow-md bg-slate-100 overflow-hidden w-full h-96 lg:m-14'>
                   {/* Project Image */}
                   <Image
                     src={edeStaalProjectImage}
@@ -58,9 +58,9 @@ const Projects = () => {
               </div>
 
               {/* Project Item */}
-              <div className='flex flex-col md:flex-row-reverse gap-x-8'>
+              <div className='flex flex-col lg:flex-row-reverse gap-x-8'>
                 {/* Project Image Container */}
-                <div className='rounded-2xl drop-shadow-md bg-slate-100 overflow-hidden w-full h-96 md:m-14'>
+                <div className='rounded-2xl drop-shadow-md bg-slate-100 overflow-hidden w-full h-96 lg:m-14'>
                   {/* Project Image */}
                   <Image
                     src={_3dscansChurchesProjectImage}
@@ -91,9 +91,9 @@ const Projects = () => {
               </div>
 
               {/* Project Item */}
-              <div className='flex flex-col md:flex-row gap-x-8'>
+              <div className='flex flex-col lg:flex-row gap-x-8'>
                 {/* Project Image Container */}
-                <div className='rounded-2xl drop-shadow-md bg-slate-100 overflow-hidden w-full h-96 md:m-14'>
+                <div className='rounded-2xl drop-shadow-md bg-slate-100 overflow-hidden w-full h-96 lg:m-14'>
                   {/* Project Image */}
                   <Image
                     src={arragnedRealismProjectImage}

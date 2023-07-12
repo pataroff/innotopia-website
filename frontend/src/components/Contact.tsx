@@ -5,9 +5,9 @@ const Contact = () => {
     <section id='contact'>
       <div className='flex justify-center items-center bg-dark-blue w-full h-full overflow-x-hidden'>
         {/* Main Wrapper */}
-        <div className='flex flex-col md:flex-row justify-center gap-x-8 gap-y-16 items-center py-16 lg:px-40 px-12 w-full container'>
+        <div className='flex flex-col lg:flex-row justify-center gap-x-8 gap-y-16 items-center py-16 lg:px-40 px-12 w-full container'>
           {/* Left Container Wrapper */}
-          <div className='flex flex-col justify-center md:items-start items-center font-poppins w-full gap-y-6 container'>
+          <div className='flex flex-col justify-center lg:items-start items-center font-poppins w-full gap-y-6 container'>
             {/* Heading Container */}
             <div>
               <h1 className='text-3xl text-white font-bold py-6'>Contact us</h1>
@@ -21,7 +21,7 @@ const Contact = () => {
               </div>
               <form className='flex flex-col p-2'>
                 {/* Input Wrapper */}
-                <div className='flex flex-col md:flex-row gap-x-6'>
+                <div className='flex flex-col lg:flex-row gap-x-6'>
                   {/* Left Side Input */}
                   <div className='w-full'>
                     <div className='flex flex-col'>
