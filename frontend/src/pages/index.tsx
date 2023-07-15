@@ -7,14 +7,34 @@ import Testimonials from '../components/Testimonials'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
 
-const index = () => {
+import { groq } from 'next-sanity'
+import { sanityClient } from '../lib/sanity.client'
+
+const projectsQuery = groq`*[_type == 'post'] | order(publishedAt desc) [0..2]{
+  _id,
+  title,
+  "mainImage": mainImage.asset->url,
+  body
+}`
+
+export const getStaticProps = async () => {
+  let projects = await sanityClient.fetch(projectsQuery)
+
+  return {
+    props: {
+      projects,
+    },
+  }
+}
+
+const index = ({ projects }) => {
   return (
     <>
       <Main />
       <Experience />
       <Services />
       <CTA />
-      <Projects />
+      <Projects projects={projects} />
       <Testimonials />
       <Contact />
       <Footer />

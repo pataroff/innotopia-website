@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  images: {
+    domains: ['cdn.sanity.io'],
+  },
 
   // This fixes the error related to defaultDocumentNode.ts, but it breaks /pages/_document.tsx!
 
