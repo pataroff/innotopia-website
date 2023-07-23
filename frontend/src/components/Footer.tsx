@@ -6,7 +6,6 @@ import {
   faSquareInstagram,
   faLinkedin,
 } from '@fortawesome/free-brands-svg-icons'
-import PageScrollTop from './common/PageScrollTop'
 
 const Footer = () => {
   return (
@@ -62,7 +61,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <PageScrollTop />
     </footer>
   )
 }

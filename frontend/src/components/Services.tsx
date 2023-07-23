@@ -1,11 +1,20 @@
+import { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faLightbulb,
-  faRocket,
-  faGamepad,
-} from '@fortawesome/free-solid-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
 
-const Services = () => {
+const Services = ({ services }) => {
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    library.add(fas)
+    setIsClient(true)
+  }, [])
+
+  function removeFaPrefix(string) {
+    return string.substring(3)
+  }
+
   return (
     <section id='services'>
       {/* Main Wrapper */}
@@ -21,64 +30,42 @@ const Services = () => {
         {/* Services Wrapper */}
         <div className='flex flex-col container font-poppins justify-center items-center gap-y-32 p-14'>
           {/* Service Item */}
-          <div className='flex flex-col-reverse lg:flex-row gap-x-40 gap-y-16 px-24'>
-            {/* Service Text */}
-            <div className='flex flex-col gap-y-4'>
-              <h2 className='text-2xl font-bold'>
-                Custom interactive products for you and your business
-              </h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
-                laborum doloribus expedita. Odit, impedit! Iste enim facere
-                inventore iusto quibusdam quidem provident exercitationem
-                praesentium.
-              </p>
-            </div>
-            {/* Service Icon */}
-            <div className='flex justify-center items-center'>
-              <FontAwesomeIcon icon={faLightbulb} width={150} height={150} />
-            </div>
-          </div>
-
-          {/* Service Item */}
-          <div className='flex flex-col-reverse lg:flex-row-reverse gap-x-36 gap-y-16 px-24'>
-            {/* Service Text */}
-            <div className='flex flex-col gap-y-4'>
-              <h2 className='text-2xl font-bold'>
-                Kickstart your career in the industry
-              </h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
-                laborum doloribus expedita. Odit, impedit! Iste enim facere
-                inventore iusto quibusdam quidem provident exercitationem
-                praesentium.
-              </p>
-            </div>
-            {/* Service Icon */}
-            <div className='flex justify-center items-center'>
-              <FontAwesomeIcon icon={faRocket} width={150} height={150} />
-            </div>
-          </div>
-
-          {/* Service Item */}
-          <div className='flex flex-col-reverse lg:flex-row gap-x-36 gap-y-16 px-24'>
-            {/* Service Text */}
-            <div className='flex flex-col gap-y-4'>
-              <h2 className='text-2xl font-bold'>
-                Gamification and game-based experiences
-              </h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
-                laborum doloribus expedita. Odit, impedit! Iste enim facere
-                inventore iusto quibusdam quidem provident exercitationem
-                praesentium.
-              </p>
-            </div>
-            {/* Service Icon */}
-            <div className='flex justify-center items-center'>
-              <FontAwesomeIcon icon={faGamepad} width={150} height={150} />
-            </div>
-          </div>
+          {services.map((service, index) => {
+            const isOddIndex = index % 2 !== 0
+            return (
+              <div
+                className={`flex flex-col-reverse lg:flex-row gap-x-40 gap-y-16 px-24 ${
+                  isOddIndex ? 'lg:flex-row-reverse' : ''
+                }`}
+                key={service._id}
+              >
+                {/* Service Text */}
+                <div className='flex flex-col gap-y-4'>
+                  <h2 className='text-2xl font-bold'>
+                    {service.title ? service.title : 'Untitled'}
+                  </h2>
+                  {service.body && service.body[0]?.children[0]?.text ? (
+                    <p>{service.body[0].children[0].text}</p>
+                  ) : (
+                    <p>No Description Available</p>
+                  )}
+                </div>
+                {/* Service Icon */}
+                <div className='flex justify-center items-center'>
+                  {isClient ? (
+                    <FontAwesomeIcon
+                      icon={{
+                        prefix: 'fas',
+                        iconName: removeFaPrefix(service.icon),
+                      }}
+                      width={150}
+                      height={150}
+                    />
+                  ) : null}
+                </div>
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>

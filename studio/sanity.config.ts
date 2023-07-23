@@ -6,6 +6,8 @@ import {defaultDocumentNode} from './defaultDocumentNode'
 // Add Shopstory plugin
 import {shopstory} from '@shopstory/sanity'
 import {mediaAssetSource} from 'sanity-plugin-media'
+// Icon Picker
+import {iconPicker} from 'sanity-plugin-icon-picker'
 
 const SITE_URL = 'http://localhost:3000' // root URL of your site
 
@@ -37,6 +39,7 @@ export default defineConfig({
       ],
       assetSource: mediaAssetSource,
     }),
+    iconPicker(),
   ],
 
   schema: {

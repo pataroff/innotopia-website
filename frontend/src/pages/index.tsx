@@ -17,22 +17,31 @@ const projectsQuery = groq`*[_type == 'post'] | order(publishedAt desc) [0..2]{
   body
 }`
 
+const servicesQuery = groq`*[_type =='service'] | order(publishedAt asc){
+  _id,
+  title,
+  body,
+  "icon": icon.name
+}`
+
 export const getStaticProps = async () => {
+  let services = await sanityClient.fetch(servicesQuery)
   let projects = await sanityClient.fetch(projectsQuery)
 
   return {
     props: {
+      services,
       projects,
     },
   }
 }
 
-const index = ({ projects }) => {
+const index = ({ services, projects }) => {
   return (
     <>
       <Main />
       <Experience />
-      <Services />
+      <Services services={services} />
       <CTA />
       <Projects projects={projects} />
       <Testimonials />
