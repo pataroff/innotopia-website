@@ -77,15 +77,15 @@ const Nav = () => {
                   <span>About</span>
                 </Link>
 
-                <Link href='#services'>
+                <Link href='/#services'>
                   <span>Services</span>
                 </Link>
 
-                <Link href='#projects'>
+                <Link href='/#projects'>
                   <span>Projects</span>
                 </Link>
 
-                <Link href='#testimonials'>
+                <Link href='/#testimonials'>
                   <span>Testimonials</span>
                 </Link>
 
@@ -132,7 +132,7 @@ const Nav = () => {
             <div className='inline-block relative'>
               <li className='relative'>
                 <Link
-                  href='#services'
+                  href='/#services'
                   className='inline-block h-full w-full hover:text-lime-green'
                 >
                   Services
@@ -143,7 +143,7 @@ const Nav = () => {
             <div className='inline-block relative'>
               <li className='relative'>
                 <Link
-                  href='#projects'
+                  href='/#projects'
                   className='inline-block h-full w-full hover:text-lime-green'
                 >
                   Projects
@@ -154,7 +154,7 @@ const Nav = () => {
             <div className='inline-block relative'>
               <li className='relative'>
                 <Link
-                  href='#testimonials'
+                  href='/#testimonials'
                   className='inline-block h-full w-full hover:text-lime-green'
                 >
                   Testimonials

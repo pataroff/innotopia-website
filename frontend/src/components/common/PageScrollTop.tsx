@@ -29,7 +29,11 @@ const PageScrollTop = () => {
     <div
       className='fixed bottom-7 right-7 cursor-pointer rounded-full drop-shadow-lg w-9 h-9 bg-white flex justify-center items-center p-2'
       onClick={scrollToTop}
-      style={{ opacity: isVisible ? 1 : 0, transition: 'opacity 0.3s ease' }}
+      style={{
+        visibility: isVisible ? 'visible' : 'hidden',
+        opacity: isVisible ? 1 : 0,
+        transition: 'opacity 0.3s ease',
+      }}
     >
       <FontAwesomeIcon icon={faChevronUp} width={40} height={40} />
     </div>

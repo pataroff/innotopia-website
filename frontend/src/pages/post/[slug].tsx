@@ -57,6 +57,7 @@ to that we have in the parameters
 
 */
 
+// Always required for dynamic routes! 👇🏻
 export async function getStaticPaths() {
   const paths = await sanityClient.fetch(
     `*[_type == "post" && defined(slug.current)][].slug.current`

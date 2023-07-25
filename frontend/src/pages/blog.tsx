@@ -6,14 +6,22 @@ import Posts from '../components/Posts'
 import { PreviewSuspense } from 'next-sanity/preview'
 
 const PreviewPosts = lazy(() => import('../components/PreviewPosts'))
-const query = groq`*[_type == "post" && !(_id in path('drafts.**')) && publishedAt < now()] | order(publishedAt desc)`
+const postsQuery = groq`*[_type == "post" && !(_id in path('drafts.**')) && publishedAt < now()] | order(publishedAt desc){
+  _id,
+  title,
+  "slug": slug.current,
+  "name": author->name,
+  "mainImage": mainImage.asset->url,
+  body,
+  publishedAt
+}`
 
 export const getStaticProps = async ({ preview = false }) => {
   if (preview) {
     return { props: { preview } }
   }
 
-  const data = await sanityClient.fetch(query)
+  const data = await sanityClient.fetch(postsQuery)
 
   return {
     props: {
@@ -32,18 +40,17 @@ export default function Home({
 }) {
   return (
     <>
-      <h1 className='text-3xl my-4 font-bold flex justify-center items-center '>
-        Welcome to Innotopia's Blog!
-      </h1>
-      {preview ? (
-        <PreviewSuspense fallback='Loading...'>
-          <PreviewPosts query={query} />
-        </PreviewSuspense>
-      ) : (
-        <>
-          <Posts posts={data} />
-        </>
-      )}
+      <div>
+        {preview ? (
+          <PreviewSuspense fallback='Loading...'>
+            <PreviewPosts query={query} />
+          </PreviewSuspense>
+        ) : (
+          <>
+            <Posts posts={data} />
+          </>
+        )}
+      </div>
     </>
   )
 }

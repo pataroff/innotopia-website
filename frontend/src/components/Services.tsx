@@ -40,7 +40,7 @@ const Services = ({ services }) => {
                 key={service._id}
               >
                 {/* Service Text */}
-                <div className='flex flex-col gap-y-4'>
+                <div className='flex flex-col gap-y-4 justify-center'>
                   <h2 className='text-2xl font-bold'>
                     {service.title ? service.title : 'Untitled'}
                   </h2>
