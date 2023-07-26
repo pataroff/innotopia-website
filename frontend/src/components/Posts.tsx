@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { FaArrowRight } from 'react-icons/fa'
 
 const Posts = ({ posts }) => {
   const wordLimit = 5
@@ -58,8 +59,9 @@ const Posts = ({ posts }) => {
                       </p>
                       {/* CTA */}
                       <Link href={`/post/${encodeURIComponent(post.slug)}`}>
-                        <div className='flex justify-center items-center rounded-2xl bg-lime-green w-40 h-10'>
+                        <div className='group flex justify-center items-center gap-x-2 rounded-2xl bg-lime-green w-40 h-10'>
                           <span className='font-bold uppercase'>Read more</span>
+                          <FaArrowRight className='hidden group-hover:inline-block' />
                         </div>
                       </Link>
                     </div>

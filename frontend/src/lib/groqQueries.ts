@@ -15,6 +15,7 @@ export const servicesQuery = groq`*[_type =='service'] | order(publishedAt asc){
 export const projectsQuery = groq`*[_type == 'post'] | order(publishedAt desc) [0..2]{
     _id,
     title,
+    "slug": slug.current,
     "mainImage": mainImage.asset->url,
     body
   }`

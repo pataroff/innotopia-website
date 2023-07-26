@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { FaArrowRight } from 'react-icons/fa'
 
 const Projects = ({ projects }) => {
   const wordLimit = 5
@@ -67,9 +68,12 @@ const Projects = ({ projects }) => {
                       <p>No Description Available</p>
                     )}
                     {/* Project CTA */}
-                    <Link href='/post/ede-staal-mijn-groningen-mien-grunne'>
-                      <div className='flex justify-center items-center rounded-2xl bg-lime-green w-40 h-10'>
-                        <span className='font-bold'>View Project</span>
+                    <Link href={`/post/${project.slug}`}>
+                      <div className='group flex justify-center items-center gap-x-2 rounded-2xl bg-lime-green w-44  h-10'>
+                        <span className='font-bold uppercase'>
+                          View Project
+                        </span>
+                        <FaArrowRight className='hidden group-hover:inline-block' />
                       </div>
                     </Link>
                   </div>

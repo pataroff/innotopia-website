@@ -4,6 +4,7 @@ import Image from 'next/image'
 import hexTile from '../../public/hex-tile.png'
 import bgAccent from '../../public/main-bg-accent.png'
 
+import { FaArrowRight } from 'react-icons/fa'
 const Main = () => {
   return (
     <>
@@ -24,8 +25,9 @@ const Main = () => {
             </p>
             {/* CTA */}
             <Link href='#contact'>
-              <div className='flex justify-center items-center mt-4 rounded-xl bg-lime-green w-40 h-10'>
+              <div className='group flex justify-center items-center gap-x-2 mt-4 rounded-xl bg-lime-green w-40 h-10 '>
                 <span className='uppercase font-bold'>Get in touch</span>
+                <FaArrowRight className='hidden group-hover:inline-block' />
               </div>
             </Link>
           </div>
