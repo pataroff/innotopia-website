@@ -21,6 +21,7 @@ export default defineType({
       type: 'iconPicker',
       options: {
         providers: ['fa'],
+        outputFormat: 'react',
       },
     }),
     defineField({

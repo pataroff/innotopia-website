@@ -1,19 +1,12 @@
 import { useState, useEffect } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fas } from '@fortawesome/free-solid-svg-icons'
+import * as Icons from 'react-icons/fa'
 
 const Services = ({ services }) => {
   const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {
-    library.add(fas)
     setIsClient(true)
   }, [])
-
-  function removeFaPrefix(string) {
-    return string.substring(3)
-  }
 
   return (
     <section id='services'>
@@ -32,6 +25,8 @@ const Services = ({ services }) => {
           {/* Service Item */}
           {services.map((service, index) => {
             const isOddIndex = index % 2 !== 0
+
+            const DynamicIcon = Icons[service.icon]
             return (
               <div
                 className={`flex flex-col-reverse lg:flex-row gap-x-40 gap-y-16 px-24 ${
@@ -52,16 +47,7 @@ const Services = ({ services }) => {
                 </div>
                 {/* Service Icon */}
                 <div className='flex justify-center items-center'>
-                  {isClient ? (
-                    <FontAwesomeIcon
-                      icon={{
-                        prefix: 'fas',
-                        iconName: removeFaPrefix(service.icon),
-                      }}
-                      width={150}
-                      height={150}
-                    />
-                  ) : null}
+                  <DynamicIcon size={150} />
                 </div>
               </div>
             )

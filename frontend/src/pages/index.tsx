@@ -29,21 +29,33 @@ const projectsQuery = groq`*[_type == 'post'] | order(publishedAt desc) [0..2]{
   body
 }`
 
+const testimonialsQuery = groq`*[_type == 'testimonial'] | order(publishedAt desc) [0..2]{
+  _id,
+  personName,
+  personPosition,
+  "personImage": personImage.asset->url,
+  body,
+  companyName,
+  "comapnyLogo": companyLogo.asset->url
+}`
+
 export const getStaticProps = async () => {
   let companies = await sanityClient.fetch(companiesQuery)
   let services = await sanityClient.fetch(servicesQuery)
   let projects = await sanityClient.fetch(projectsQuery)
+  let testimonials = await sanityClient.fetch(testimonialsQuery)
 
   return {
     props: {
       companies,
       services,
       projects,
+      testimonials,
     },
   }
 }
 
-const index = ({ companies, services, projects }) => {
+const index = ({ companies, services, projects, testimonials }) => {
   return (
     <>
       <Main />
@@ -51,7 +63,7 @@ const index = ({ companies, services, projects }) => {
       <Services services={services} />
       <CTA />
       <Projects projects={projects} />
-      <Testimonials />
+      <Testimonials testimonials={testimonials} />
       <Contact />
       <Footer />
     </>

@@ -17,7 +17,7 @@ const Posts = ({ posts }) => {
         <div className='w-full lg:w-[1024px]'>
           {posts.length > 0 &&
             posts.map(
-              (post, index) =>
+              (post) =>
                 post.slug && (
                   <div key={post._id} className='flex flex-col p-4 w-full'>
                     {/* Image Container */}
@@ -59,9 +59,7 @@ const Posts = ({ posts }) => {
                       {/* CTA */}
                       <Link href={`/post/${encodeURIComponent(post.slug)}`}>
                         <div className='flex justify-center items-center rounded-2xl bg-lime-green w-40 h-10'>
-                          <span className='font-bold uppercase text-sm'>
-                            Read more
-                          </span>
+                          <span className='font-bold uppercase'>Read more</span>
                         </div>
                       </Link>
                     </div>
