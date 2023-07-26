@@ -7,9 +7,6 @@ export default function PreviewPost({
   params,
   renderableContent,
   meta,
-}: {
-  query: string
-  params: { [key: string]: any }
 }) {
   const data = usePreview(null, query, params)
 
