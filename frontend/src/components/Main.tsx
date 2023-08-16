@@ -5,6 +5,35 @@ import hexTile from '../../public/hex-tile.png'
 import bgAccent from '../../public/main-bg-accent.png'
 
 import { FaArrowRight } from 'react-icons/fa'
+
+// Reacth Three Fiber
+import { Canvas, useLoader, useFrame } from '@react-three/fiber'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+
+import { useRef } from 'react'
+
+const HexTileModel = () => {
+  const hexTileRef = useRef()
+
+  const gltf = useLoader(GLTFLoader, '/GroningenHex.gltf')
+
+  useFrame(({ clock }) => {
+    // hexTileRef.current.rotation.y = clock.getElapsedTime()
+    hexTileRef.current.rotation.y += 0.01
+  })
+
+  return (
+    <>
+      <primitive
+        object={gltf.scene}
+        scale={1.8}
+        ref={hexTileRef}
+        rotation-x={0.4}
+      />
+    </>
+  )
+}
+
 const Main = () => {
   return (
     <>
@@ -34,13 +63,20 @@ const Main = () => {
           {/* Hero Container */}
           <div className='relative container h-[600px] w-[600px]'>
             <div className='absolute inset-0 z-10 p-14 pr-0 flex justify-end'>
+              <Canvas>
+                <ambientLight intensity={0.8} />
+                <directionalLight position={[0, 0, 5]} />
+                <HexTileModel />
+              </Canvas>
+            </div>
+            {/* <div className='absolute inset-0 z-10 p-14 pr-0 flex justify-end'>
               <Image
                 priority
                 className='h-full w-full max-w-lg object-scale-down'
                 src={hexTile}
                 alt='Hex Tile'
               />
-            </div>
+            </div> */}
             <div className='absolute inset-0 z-0 p-14 pr-0 flex justify-end'>
               <Image
                 priority
