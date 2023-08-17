@@ -9,26 +9,29 @@ import { FaArrowRight } from 'react-icons/fa'
 // Reacth Three Fiber
 import { Canvas, useLoader, useFrame } from '@react-three/fiber'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+import { OrbitControls } from '@react-three/drei'
 
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 
 const HexTileModel = () => {
   const hexTileRef = useRef()
+  const [active, setActive] = useState(false)
 
   const gltf = useLoader(GLTFLoader, '/GroningenHex.gltf')
 
-  useFrame(({ clock }) => {
-    // hexTileRef.current.rotation.y = clock.getElapsedTime()
-    hexTileRef.current.rotation.y += 0.01
-  })
+  // useFrame(({ clock }) => {
+  //   // hexTileRef.current.rotation.y = clock.getElapsedTime()
+  //   hexTileRef.current.rotation.y += 0.01
+  // })
 
   return (
     <>
       <primitive
         object={gltf.scene}
-        scale={1.8}
+        scale={1.7}
         ref={hexTileRef}
-        rotation-x={0.4}
+        // Initial Rotation Values - [0.3, -2.2, -0.015]
+        rotation={[0.3, -2.2, -0.015]}
       />
     </>
   )
@@ -64,7 +67,13 @@ const Main = () => {
           <div className='relative container h-[600px] w-[600px]'>
             <div className='absolute inset-0 z-10 p-14 pr-0 flex justify-end'>
               <Canvas>
-                <ambientLight intensity={0.8} />
+                <OrbitControls
+                  enablePan={false}
+                  enableZoom={false}
+                  minPolarAngle={Math.PI * 0.3}
+                  maxPolarAngle={Math.PI * 0.4}
+                />
+                <ambientLight intensity={2.5} />
                 <directionalLight position={[0, 0, 5]} />
                 <HexTileModel />
               </Canvas>
