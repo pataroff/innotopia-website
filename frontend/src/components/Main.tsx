@@ -30,8 +30,8 @@ const HexTileModel = () => {
         object={gltf.scene}
         scale={1.7}
         ref={hexTileRef}
-        // Initial Rotation Values - [0.3, -2.2, -0.015]
-        rotation={[0.3, -2.2, -0.015]}
+        // Initial Rotation Values - [0.4, -2.3, -0.015]
+        rotation={[0.4, -2.3, -0.015]}
       />
     </>
   )
@@ -70,8 +70,10 @@ const Main = () => {
                 <OrbitControls
                   enablePan={false}
                   enableZoom={false}
-                  minPolarAngle={Math.PI * 0.3}
-                  maxPolarAngle={Math.PI * 0.4}
+                  minPolarAngle={Math.PI * 0.5}
+                  maxPolarAngle={Math.PI * 0.9}
+                  minAzimuthAngle={-Math.PI * 0.2}
+                  maxAzimuthAngle={Math.PI * 0.2}
                 />
                 <ambientLight intensity={2.5} />
                 <directionalLight position={[0, 0, 5]} />
