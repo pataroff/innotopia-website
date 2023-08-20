@@ -6,8 +6,11 @@ export const shopstoryConfig: Config = {
   // ...
   plugins: [
     sanityPlugin({
+      //@ts-ignore
       dataset: sanityConfig.dataset,
+      //@ts-ignore
       projectId: sanityConfig.projectId,
+      //@ts-ignore
       token: process.env.NEXT_PUBLIC_SANITY_API_TOKEN,
     }),
   ],
