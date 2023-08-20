@@ -7,7 +7,7 @@ const Experience = ({ companies }) => {
       <div className='flex flex-col justify-center items-center'>
         {/* Text Container */}
         <div>
-          <h3 className='font-poppins text-center px-14 py-12 font-bold text-sm uppercase'>
+          <h3 className='font-poppins text-center px-14 py-12 font-bold text-md uppercase'>
             Companies that have innovated with us
           </h3>
         </div>
@@ -17,7 +17,7 @@ const Experience = ({ companies }) => {
           {companies.map((company) => (
             <div key={company._id}>
               <Image
-                className='grayscale'
+                className='grayscale hover:scale-125 hover:grayscale-0 transition-transform duration-150'
                 priority
                 src={company.logo}
                 alt={company.title}

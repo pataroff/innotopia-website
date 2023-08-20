@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 const Testimonials = ({ testimonials }) => {
   return (
-    <section id='testimonials'>
+    <section id='testimonials' className='scroll-mt-16'>
       {/* Main Wrapper */}
       <div className='flex flex-col justify-center items-center p-14 overflow-x-hidden'>
         {/* Heading Container */}
@@ -22,7 +22,7 @@ const Testimonials = ({ testimonials }) => {
                 className='flex flex-col flex-1 rounded-md bg-slate-100 h-full w-72'
               >
                 {/* Person Image */}
-                <div className='relative rounded-full overflow-hidden bg-slate-500 w-20 h-20 -mt-6 ml-8'>
+                <div className='relative rounded-full overflow-hidden bg-slate-500 w-20 h-20 -mt-6 ml-8 hover:scale-110 transition-transform duration-150'>
                   <Image
                     className='relative object-cover w-full h-full'
                     src={testimonial.personImage}

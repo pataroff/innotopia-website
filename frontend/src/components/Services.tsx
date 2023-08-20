@@ -9,12 +9,12 @@ const Services = ({ services }) => {
   }, [])
 
   return (
-    <section id='services'>
+    <section id='services' className='scroll-mt-16'>
       {/* Main Wrapper */}
       <div className='flex flex-col justify-center items-center overflow-x-hidden'>
         {/* Text Container */}
         <div>
-          <h1 className='relative font-poppins lg:text-2xl text-2xl font-bold z-10 p-14'>
+          <h1 className='relative font-poppins lg:text-3xl text-2xl font-bold z-10 p-14'>
             How We Can Help You
           </h1>
           {/* Underline Effect */}
@@ -46,7 +46,7 @@ const Services = ({ services }) => {
                   )}
                 </div>
                 {/* Service Icon */}
-                <div className='flex justify-center items-center'>
+                <div className='flex justify-center items-center hover:scale-110 transition-transform duration-150'>
                   <DynamicIcon size={150} />
                 </div>
               </div>

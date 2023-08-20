@@ -28,34 +28,34 @@ const Footer = () => {
               href='https://www.linkedin.com/company/indietopia'
             >
               <FontAwesomeIcon
+                className='text-white hover:text-lime-green transition-colors duration-300'
                 icon={faLinkedin}
                 width={30}
                 height={30}
-                color='white'
               />
             </Link>
             <Link target='_blank' href='https://www.facebook.com/indietopia/'>
               <FontAwesomeIcon
+                className='text-white hover:text-lime-green transition-colors duration-300'
                 icon={faSquareFacebook}
                 width={30}
                 height={30}
-                color='white'
               />
             </Link>
             <Link target='_blank' href='https://twitter.com/IndietopiaNL'>
               <FontAwesomeIcon
+                className='text-white hover:text-lime-green transition-colors duration-300'
                 icon={faSquareTwitter}
                 width={30}
                 height={30}
-                color='white'
               />
             </Link>
             <Link target='_blank' href='https://www.instagram.com/indietopia'>
               <FontAwesomeIcon
+                className='text-white hover:text-lime-green transition-colors duration-300'
                 icon={faSquareInstagram}
                 width={30}
                 height={30}
-                color='white'
               />
             </Link>
           </div>

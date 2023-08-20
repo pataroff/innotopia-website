@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { FaArrowRight } from 'react-icons/fa'
 
 const Posts = ({ posts }) => {
-  const wordLimit = 5
+  const wordLimit = 50
 
   const getWords = (text) => {
     const words = text.trim().split(' ')
@@ -22,10 +22,10 @@ const Posts = ({ posts }) => {
                 post.slug && (
                   <div key={post._id} className='flex flex-col p-4 w-full'>
                     {/* Image Container */}
-                    <div className='w-full h-80 mb-4'>
+                    <div className='rounded-2xl drop-shadow-md bg-slate-100 overflow-hidden w-full h-80 my-4'>
                       <Link href={`/post/${encodeURIComponent(post.slug)}`}>
                         <Image
-                          className='w-full h-full object-cover rounded-2xl'
+                          className='relative object-cover w-full h-full hover:scale-110 hover:opacity-80 transition-all duration-300'
                           src={post.mainImage}
                           width={1000}
                           height={1000}
@@ -35,7 +35,7 @@ const Posts = ({ posts }) => {
                       </Link>
                     </div>
                     {/* Text Container */}
-                    <div className='flex flex-col gap-y-2 font-poppins h-full w-full'>
+                    <div className='flex flex-col gap-y-4 font-poppins h-full w-full'>
                       <Link href={`/post/${encodeURIComponent(post.slug)}`}>
                         <h1 className='font-poppins font-bold text-2xl uppercase'>
                           {post.title}
@@ -59,9 +59,9 @@ const Posts = ({ posts }) => {
                       </p>
                       {/* CTA */}
                       <Link href={`/post/${encodeURIComponent(post.slug)}`}>
-                        <div className='group flex justify-center items-center gap-x-2 rounded-2xl bg-lime-green w-40 h-10'>
+                        <div className='flex justify-center items-center gap-x-2 rounded-2xl drop-shadow-md bg-lime-green w-40 h-10 hover:scale-95 transition-transform duration-300'>
                           <span className='font-bold uppercase'>Read more</span>
-                          <FaArrowRight className='hidden group-hover:inline-block' />
+                          {/* <FaArrowRight className='hidden group-hover:inline-block' /> */}
                         </div>
                       </Link>
                     </div>

@@ -22,9 +22,9 @@ const CTA = () => {
           </p>
           {/* CTA */}
           <Link href='#contact'>
-            <div className='group flex justify-center items-center gap-x-2 rounded-xl bg-lime-green w-40 h-10'>
+            <div className='group flex justify-center items-center gap-x-2 rounded-xl bg-lime-green w-40 h-10 hover:scale-110 transition-transform duration-150'>
               <span className='uppercase font-bold'>Get in touch</span>
-              <FaArrowRight className='hidden group-hover:inline-block' />
+              {/* <FaArrowRight className='hidden group-hover:inline-block' /> */}
             </div>
           </Link>
         </div>

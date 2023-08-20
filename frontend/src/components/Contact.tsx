@@ -74,13 +74,12 @@ const Contact = () => {
                   </label>
                   <textarea
                     className='bg-slate-200 rounded-xl outline-none p-2'
-                    cols='5'
-                    rows='5'
+                    cols={5}
+                    rows={5}
                   ></textarea>
                   {/* Send Button */}
-
                   <Link href='/'>
-                    <div className='flex justify-center items-center rounded-xl bg-lime-green w-full h-10 mt-4 mb-0'>
+                    <div className='flex justify-center items-center rounded-xl bg-lime-green w-full h-10 mt-4 mb-0 hover:brightness-110 transition-all duration-500'>
                       <span className='uppercase font-bold'>Send</span>
                     </div>
                   </Link>

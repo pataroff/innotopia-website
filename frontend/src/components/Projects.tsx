@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { FaArrowRight } from 'react-icons/fa'
 
 const Projects = ({ projects }) => {
-  const wordLimit = 5
+  const wordLimit = 50
 
   const getWords = (text) => {
     const words = text.trim().split(' ')
@@ -11,7 +11,7 @@ const Projects = ({ projects }) => {
   }
 
   return (
-    <section id='projects'>
+    <section id='projects' className='scroll-mt-16'>
       {/* Main Wrapper */}
       <div className='flex flex-col justify-center items-center overflow-x-hidden'>
         {/* Heading Container */}
@@ -37,14 +37,16 @@ const Projects = ({ projects }) => {
                   <div className='rounded-2xl drop-shadow-md bg-slate-100 overflow-hidden w-full h-96 lg:m-14'>
                     {/* Project Image */}
                     {project.mainImage ? (
-                      <Image
-                        src={project.mainImage}
-                        width={1600}
-                        height={585}
-                        alt={project.title}
-                        className='relative object-cover w-full h-full'
-                        style={{ objectPosition: '30% 50%' }}
-                      />
+                      <Link href={`/post/${project.slug}`}>
+                        <Image
+                          className='relative object-cover w-full h-full hover:scale-110 hover:opacity-80 transition-all duration-150'
+                          src={project.mainImage}
+                          width={1600}
+                          height={585}
+                          alt={project.title}
+                          style={{ objectPosition: '30% 50%' }}
+                        />
+                      </Link>
                     ) : (
                       <div className='flex items-center justify-center h-full bg-gray-200'>
                         <span>No Image Available</span>
@@ -52,7 +54,7 @@ const Projects = ({ projects }) => {
                     )}
                   </div>
                   {/* Project Text Wrapper */}
-                  <div className='flex flex-col justify-center font-poppins p-12 gap-y-4 w-full'>
+                  <div className='flex flex-col justify-center font-poppins p-12 gap-y-8 w-full'>
                     {/* Project Title */}
                     <h3 className='text-2xl font-bold'>
                       {project.title ? project.title : 'Untitled'}
@@ -69,11 +71,9 @@ const Projects = ({ projects }) => {
                     )}
                     {/* Project CTA */}
                     <Link href={`/post/${project.slug}`}>
-                      <div className='group flex justify-center items-center gap-x-2 rounded-2xl bg-lime-green w-44  h-10'>
-                        <span className='font-bold uppercase'>
-                          View Project
-                        </span>
-                        <FaArrowRight className='hidden group-hover:inline-block' />
+                      <div className='flex justify-center items-center gap-x-2 rounded-2xl bg-lime-green w-44  h-10 hover:scale-95 transition-transform duration-150'>
+                        <span className='font-bold uppercase'>Learn More</span>
+                        {/* <FaArrowRight className='hidden group-hover:inline-block' /> */}
                       </div>
                     </Link>
                   </div>

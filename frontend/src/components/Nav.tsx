@@ -26,7 +26,7 @@ const Nav = () => {
             <div className='shrink-0 w-full'>
               <Link href='/'>
                 <Image
-                  className='w-24 h-12 xl:w-32'
+                  className='w-24 h-12 xl:w-32 hover:scale-110 transition-transform duration-150'
                   priority
                   src={innotopiaLogo}
                   alt='Innotopia'
@@ -106,7 +106,7 @@ const Nav = () => {
           <div className='shrink-0'>
             <Link href='/'>
               <Image
-                className='w-24 h-12 xl:w-32'
+                className='w-24 h-12 xl:w-32 hover:scale-110 transition-transform duration-150'
                 priority
                 src={innotopiaLogo}
                 alt='Innotopia'
