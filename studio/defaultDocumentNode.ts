@@ -12,12 +12,14 @@ import {SanityDocument} from 'sanity'
 // doc : SanityDoucment
 // defaultDocumentNode : DefaultDocumentNodeResolver
 
+//@ts-ignore
 function getPreviewUrl(doc) {
   return doc?.slug?.current
     ? `http://localhost:3000/api/preview?slug=${doc.slug.current}`
     : `http://localhost:3000/api/preview`
 }
 
+//@ts-ignore
 export const defaultDocumentNode = (S, {schemaType}) => {
   switch (schemaType) {
     case 'post':
@@ -26,6 +28,7 @@ export const defaultDocumentNode = (S, {schemaType}) => {
         S.view
           .component(Iframe)
           .options({
+            //@ts-ignore
             url: (doc) => getPreviewUrl(doc),
           })
           .title('Preview'),
