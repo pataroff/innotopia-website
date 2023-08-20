@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 import { sanityClient } from '../lib/sanity.client'
 import imageUrlBuilder from '@sanity/image-url'
 import { PortableText } from '@portabletext/react'
@@ -17,7 +19,7 @@ const ptComponents = {
         return null
       }
       return (
-        <img
+        <Image
           alt={value.alt || ' '}
           loading='lazy'
           src={urlFor(value)
@@ -79,6 +81,7 @@ const Post = ({ post, renderableContent, meta }) => {
         <PortableText value={body} components={ptComponents} />
 
         {shopstoryRawContent != null && (
+          //@ts-ignore
           <DemoShopstoryProvider>
             <ShopstoryMetadataProvider meta={meta}>
               {renderableContent.map((renderableContent, index) => (
