@@ -5,6 +5,7 @@ import { DemoShopstoryProvider } from '../../src/shopstory/provider'
 
 const ShopstoryCanvasPage: NextPage = () => {
   return (
+    //@ts-ignore
     <DemoShopstoryProvider>
       <Canvas config={shopstoryConfig} />
     </DemoShopstoryProvider>

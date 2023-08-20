@@ -43,7 +43,8 @@ export default function Home({
       <div>
         {preview ? (
           <PreviewSuspense fallback='Loading...'>
-            <PreviewPosts query={query} />
+            {/* This was set as query={query}! 🤔 */}
+            <PreviewPosts query={postsQuery} />
           </PreviewSuspense>
         ) : (
           <>

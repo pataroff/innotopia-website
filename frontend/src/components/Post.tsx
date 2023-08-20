@@ -56,7 +56,7 @@ const Post = ({ post, renderableContent, meta }) => {
         )}
         {mainImage && (
           <div className='my-4'>
-            <img src={urlFor(mainImage).width(300).url()} alt={title} />
+            <Image src={urlFor(mainImage).width(300).url()} alt={title} />
           </div>
         )}
 
@@ -74,7 +74,7 @@ const Post = ({ post, renderableContent, meta }) => {
 
         {authorImage && (
           <div>
-            <img src={urlFor(authorImage).width(50).url()} alt={name} />
+            <Image src={urlFor(authorImage).width(50).url()} alt={name} />
           </div>
         )}
 

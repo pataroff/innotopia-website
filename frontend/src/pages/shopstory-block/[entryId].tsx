@@ -12,6 +12,7 @@ type ShopstoryBlockPageProps = {
 
 const ShopstoryBlockPage: NextPage<ShopstoryBlockPageProps> = (props) => {
   return (
+    //@ts-ignore
     <DemoShopstoryProvider>
       <ShopstoryMetadataProvider meta={props.meta}>
         <Shopstory content={props.renderableContent} />
