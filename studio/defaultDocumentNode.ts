@@ -1,7 +1,6 @@
-//@ts-ignore
-import {DefaultDocumentNodeResolver} from 'sanity/desk'
+// import {DefaultDocumentNodeResolver} from 'sanity/desk'
 import Iframe from 'sanity-plugin-iframe-pane'
-import {SanityDocument} from 'sanity'
+// import {SanityDocument} from 'sanity'
 
 // The error is related to type declarations! 👈🏻
 // The custom webpack configuration fixes the error, but causes another error in /pages/_document.tsx!
