@@ -54,7 +54,7 @@ const Projects = ({ projects }) => {
                     )}
                   </div>
                   {/* Project Text Wrapper */}
-                  <div className='flex flex-col justify-center font-poppins p-12 gap-y-8 w-full'>
+                  <div className='flex flex-col justify-center font-poppins p-12 gap-y-10 w-full'>
                     {/* Project Title */}
                     <h3 className='text-2xl font-bold'>
                       {project.title ? project.title : 'Untitled'}

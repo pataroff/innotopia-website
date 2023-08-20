@@ -73,27 +73,27 @@ const Nav = () => {
             <>
               {/* Menu Items */}
               <div className='flex flex-col justify-center items-center gap-y-6 p-4 bg-dark-blue font-poppins text-white text-md font-bold'>
-                <Link href='/'>
+                <Link href='/' onClick={() => setIsOpen(!isOpen)}>
                   <span>About</span>
                 </Link>
 
-                <Link href='/#services'>
+                <Link href='/#services' onClick={() => setIsOpen(!isOpen)}>
                   <span>Services</span>
                 </Link>
 
-                <Link href='/#projects'>
+                <Link href='/#projects' onClick={() => setIsOpen(!isOpen)}>
                   <span>Projects</span>
                 </Link>
 
-                <Link href='/#testimonials'>
+                <Link href='/#testimonials' onClick={() => setIsOpen(!isOpen)}>
                   <span>Testimonials</span>
                 </Link>
 
-                <Link href='/blog'>
+                <Link href='/blog' onClick={() => setIsOpen(!isOpen)}>
                   <span>Blog</span>
                 </Link>
 
-                <Link href='/'>
+                <Link href='/' onClick={() => setIsOpen(!isOpen)}>
                   <span>Events</span>
                 </Link>
               </div>

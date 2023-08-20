@@ -52,7 +52,7 @@ const Posts = ({ posts }) => {
                           }
                         )}
                       </h3>
-                      <p className='font-light text-md'>
+                      <p className='font-normal text-md'>
                         {getWords(post.body[0].children[0].text)}
                         {post.body[0].children[0].text.split(' ').length >
                           wordLimit && '...'}
