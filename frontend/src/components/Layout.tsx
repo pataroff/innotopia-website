@@ -1,5 +1,6 @@
 import { Poppins } from 'next/font/google'
-import Nav from './Nav'
+import Nav from './common/Nav'
+import Footer from './common/Footer'
 import PageScrollTop from './common/PageScrollTop'
 
 const poppins = Poppins({
@@ -13,6 +14,7 @@ const Layout = ({ children }) => {
     <div className={`${poppins.variable}`}>
       <Nav />
       <main>{children}</main>
+      <Footer />
       <PageScrollTop />
     </div>
   )

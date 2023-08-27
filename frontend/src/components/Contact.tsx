@@ -2,10 +2,10 @@ import Link from 'next/link'
 
 const Contact = () => {
   return (
-    <section id='contact'>
+    <section id='contact' className='scroll-mt-4'>
       <div className='flex justify-center items-center bg-dark-blue w-full h-full overflow-x-hidden'>
         {/* Main Wrapper */}
-        <div className='flex flex-col lg:flex-row justify-center gap-x-8 gap-y-16 items-center py-16 lg:px-40 px-12 w-full container'>
+        <div className='flex flex-col lg:flex-row justify-center gap-x-8 gap-y-16 items-center lg:py-16 py-8 lg:px-40 px-12 w-full container'>
           {/* Left Container Wrapper */}
           <div className='flex flex-col justify-center lg:items-start items-center font-poppins w-full gap-y-6 container'>
             {/* Heading Container */}
@@ -25,7 +25,7 @@ const Contact = () => {
                   {/* Left Side Input */}
                   <div className='w-full'>
                     <div className='flex flex-col'>
-                      <label className='text-sm font-semibold px-1.5 py-3'>
+                      <label className='text-sm font-semibold px-1.5 py-1.5'>
                         First Name
                       </label>
                       <input
@@ -35,7 +35,7 @@ const Contact = () => {
                     </div>
 
                     <div className='flex flex-col'>
-                      <label className='text-sm font-semibold px-1.5 py-3'>
+                      <label className='text-sm font-semibold px-1.5 py-1.5'>
                         Last Name
                       </label>
                       <input
@@ -47,7 +47,7 @@ const Contact = () => {
                   {/* Right Side Input */}
                   <div className='w-full'>
                     <div className='flex flex-col'>
-                      <label className='text-sm font-semibold px-1.5 py-3'>
+                      <label className='text-sm font-semibold px-1.5 py-1.5'>
                         Email
                       </label>
                       <input
@@ -57,7 +57,7 @@ const Contact = () => {
                     </div>
 
                     <div className='flex flex-col'>
-                      <label className='text-sm font-semibold px-1.5 py-3 whitespace-nowrap'>
+                      <label className='text-sm font-semibold px-1.5 py-1.5 whitespace-nowrap'>
                         Phone (optional)
                       </label>
                       <input
@@ -69,13 +69,13 @@ const Contact = () => {
                 </div>
                 {/* Text Area */}
                 <div className='flex flex-col'>
-                  <label className='text-sm font-semibold px-1.5 py-3'>
+                  <label className='text-sm font-semibold px-1.5 py-1.5'>
                     How we can help you?
                   </label>
                   <textarea
                     className='bg-slate-200 rounded-xl outline-none p-2'
-                    cols={5}
-                    rows={5}
+                    cols={7}
+                    rows={7}
                   ></textarea>
                   {/* Send Button */}
                   <Link href='/'>

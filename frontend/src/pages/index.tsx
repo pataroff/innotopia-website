@@ -5,7 +5,6 @@ import CTA from '../components/CTA'
 import Projects from '../components/Projects'
 import Testimonials from '../components/Testimonials'
 import Contact from '../components/Contact'
-import Footer from '../components/Footer'
 
 import {
   companiesQuery,
@@ -41,7 +40,6 @@ const index = ({ companies, services, projects, testimonials }) => {
       <Projects projects={projects} />
       <Testimonials testimonials={testimonials} />
       <Contact />
-      <Footer />
     </>
   )
 }

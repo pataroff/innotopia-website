@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 import { useState } from 'react'
 
-import innotopiaLogo from '../../public/innotopia-logo-white.svg'
+import innotopiaLogo from '../../../public/innotopia-logo-white.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons'
 

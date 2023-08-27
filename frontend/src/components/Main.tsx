@@ -15,7 +15,6 @@ import { useRef, useState, useEffect } from 'react'
 
 const HexTileModel = () => {
   const hexTileRef = useRef()
-  const [active, setActive] = useState(false)
   const [scale, setScale] = useState(2)
 
   const gltf = useLoader(GLTFLoader, '/GroningenHex.gltf')
