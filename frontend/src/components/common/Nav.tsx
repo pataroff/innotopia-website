@@ -118,69 +118,60 @@ const Nav = () => {
           {/* Menu */}
           <div className='list-none flex justify-center items-center gap-x-8 px-4 text-xs text-white font-poppins font-semibold xl:text-sm xl:gap-x-12 xl:pl-10'>
             {/* Menu Item */}
-            <div className='inline-block relative'>
+            <div className='inline-block relative group'>
               <li className='relative'>
-                <Link
-                  href='/'
-                  className='inline-block h-full w-full hover:text-lime-green'
-                >
+                <Link href='/' className='inline-block h-full w-full'>
                   About
                 </Link>
+                <div className='bg-lime-green h-0.5 w-0 absolute group-hover:w-full transition-all duration-300'></div>
               </li>
             </div>
             {/* Menu Item */}
-            <div className='inline-block relative'>
+            <div className='inline-block relative group'>
               <li className='relative'>
-                <Link
-                  href='/#services'
-                  className='inline-block h-full w-full hover:text-lime-green'
-                >
+                <Link href='/#services' className='inline-block h-full w-full'>
                   Services
                 </Link>
+                <div className='bg-lime-green h-0.5 w-0 absolute group-hover:w-full transition-all duration-300'></div>
               </li>
             </div>
             {/* Menu Item */}
-            <div className='inline-block relative'>
+            <div className='inline-block relative group'>
               <li className='relative'>
-                <Link
-                  href='/#projects'
-                  className='inline-block h-full w-full hover:text-lime-green'
-                >
+                <Link href='/#projects' className='inline-block h-full w-full'>
                   Projects
                 </Link>
+                <div className='bg-lime-green h-0.5 w-0 absolute group-hover:w-full transition-all duration-300'></div>
               </li>
             </div>
             {/* Menu Item */}
-            <div className='inline-block relative'>
+            <div className='inline-block relative group'>
               <li className='relative'>
                 <Link
                   href='/#testimonials'
-                  className='inline-block h-full w-full hover:text-lime-green'
+                  className='inline-block h-full w-full'
                 >
                   Testimonials
                 </Link>
+                <div className='bg-lime-green h-0.5 w-0 absolute group-hover:w-full transition-all duration-300'></div>
               </li>
             </div>
             {/* Menu Item */}
-            <div className='inline-block relative'>
+            <div className='inline-block relative group'>
               <li className='relative'>
-                <Link
-                  href='/blog'
-                  className='inline-block h-full w-full hover:text-lime-green'
-                >
+                <Link href='/blog' className='inline-block h-full w-full'>
                   Blog
                 </Link>
+                <div className='bg-lime-green h-0.5 w-0 absolute group-hover:w-full transition-all duration-300'></div>
               </li>
             </div>
             {/* Menu Item */}
-            <div className='inline-block relative'>
+            <div className='inline-block relative group'>
               <li className='relative'>
-                <Link
-                  href='/'
-                  className='inline-block h-full w-full hover:text-lime-green'
-                >
+                <Link href='/' className='inline-block h-full w-full'>
                   Events
                 </Link>
+                <div className='bg-lime-green h-0.5 w-0 absolute group-hover:w-full transition-all duration-300'></div>
               </li>
             </div>
           </div>

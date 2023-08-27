@@ -128,6 +128,12 @@ const Contact = () => {
               <h3>0031-50-2113663</h3>
               <h3>hello@indietopia.org</h3>
             </div>
+            <iframe
+              src='https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d19114.02485503884!2d6.5890960000000005!3d53.21331!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c9d2adf7c0bde1%3A0x6537de64570dee4d!2sL%C3%BCbeckweg%202%2C%209723%20HE%20Groningen%2C%20Netherlands!5e0!3m2!1sen!2sus!4v1693154914442!5m2!1sen!2sus'
+              width='400'
+              height='300'
+              loading='lazy'
+            ></iframe>
           </div>
         </div>
       </div>
