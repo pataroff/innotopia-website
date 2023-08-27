@@ -16,9 +16,10 @@ const Projects = ({ projects }) => {
       <div className='flex flex-col justify-center items-center overflow-x-hidden'>
         {/* Heading Container */}
         <div className='flex flex-col justify-center items-center font-poppins py-14'>
-          <h2 className='lg:text-3xl text-2xl font-bold z-10 py-4'>
-            What we do
-          </h2>
+          <div className='flex flex-col py-4'>
+            <h2 className='lg:text-3xl text-2xl font-bold z-10'>What we do</h2>
+            <div className='bg-lime-green h-2 w-full z-0 -mt-2'></div>
+          </div>
         </div>
         {/* Rounded Box Wrapper */}
         <div className='px-56 py-8'>

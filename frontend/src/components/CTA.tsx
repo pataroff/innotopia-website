@@ -9,9 +9,12 @@ const CTA = () => {
       <div className='flex flex-col justify-center items-center bg-dark-blue w-full overflow-x-hidden'>
         {/* Text Wrapper */}
         <div className='flex flex-col justify-center items-center text-center font-poppins p-14'>
-          <h1 className='font-poppins text-white md:text-2xl lg:text-3xl text-2xl font-bold z-10 py-4'>
-            We are here to help
-          </h1>
+          <div className='flex flex-col py-4'>
+            <h1 className='font-poppins text-white md:text-2xl lg:text-3xl text-2xl font-bold z-10'>
+              We are here to help
+            </h1>
+            <div className='bg-lime-green h-2 w-full z-0 -mt-2'></div>
+          </div>
           {/* Underline Effect */}
           <p className='font-light text-white px-10 py-4 pb-10 md:px-24 max-w-3xl'>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -7,7 +8,8 @@ import {
   faSquareInstagram,
   faLinkedin,
 } from '@fortawesome/free-brands-svg-icons'
-import React from 'react'
+
+import pataroffLogo from '../../../public/pataroff_logo.png'
 
 const Footer = () => {
   const [isSubscribed, setIsSubscribed] = useState(false)
@@ -72,8 +74,22 @@ const Footer = () => {
             </Link>
           </div>
           {/* 2023© Innotopia. All rights reserved */}
-          <div className='flex justify-center items-center font-poppins text-sm font-semibold text-white w-full h-full lg:order-2 order-3'>
+          <div className='flex flex-col justify-center items-center font-poppins text-sm font-semibold text-white w-full h-full gap-y-2 lg:order-2 order-3'>
             <h3>{new Date().getFullYear()}© Innotopia. All rights reserved.</h3>
+            <div className='flex flex-row justify-center items-center text-xs font-light'>
+              <h3>
+                Web design by{' '}
+                <Link href='https://pataroff.com' className='hover:font-medium'>
+                  Pataroff
+                </Link>
+              </h3>
+              {/* <Image
+                src={pataroffLogo}
+                width={30}
+                height={30}
+                alt='Pataroff Logo'
+              /> */}
+            </div>
           </div>
           {/* Subscribe to our newsletter! */}
           <div className='flex flex-col font-poppins justify-center items-center lg:items-start gap-y-2 w-full lg:order-3 order-1'>

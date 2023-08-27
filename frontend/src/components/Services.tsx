@@ -13,12 +13,12 @@ const Services = ({ services }) => {
       {/* Main Wrapper */}
       <div className='flex flex-col justify-center items-center overflow-x-hidden'>
         {/* Text Container */}
-        <div>
-          <h1 className='relative font-poppins lg:text-3xl text-2xl font-bold z-10 p-14'>
+        <div className='flex flex-col p-14'>
+          <h1 className='relative font-poppins lg:text-3xl text-2xl font-bold z-10 '>
             How We Can Help You
           </h1>
           {/* Underline Effect */}
-          <div className='absolute bg-lime-600 z-0 h-2'></div>
+          <div className='bg-lime-green h-2 w-full z-0 -mt-2'></div>
         </div>
         {/* Services Wrapper */}
         <div className='flex flex-col container font-poppins justify-center items-center gap-y-32 p-14'>

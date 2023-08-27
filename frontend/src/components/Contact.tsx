@@ -22,9 +22,10 @@ const Contact = () => {
           {/* Left Container Wrapper */}
           <div className='flex flex-col justify-center lg:items-start items-center font-poppins w-full gap-y-6 container'>
             {/* Heading Container */}
-            <div>
-              <h1 className='text-3xl text-white font-bold py-6'>Contact us</h1>
+            <div className='flex flex-col py-6'>
+              <h1 className='text-3xl text-white font-bold'>Contact us</h1>
               {/* Underline Effect */}
+              <div className='bg-lime-green h-2 w-full z-0 -mt-2'></div>
             </div>
             {/* Form Container */}
             <div className='rounded-xl bg-white w-full h-full z-0 p-6'>
