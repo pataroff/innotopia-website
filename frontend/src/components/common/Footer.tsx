@@ -11,11 +11,21 @@ import React from 'react'
 
 const Footer = () => {
   const [isSubscribed, setIsSubscribed] = useState(false)
+  const [email, setEmail] = useState('')
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
+  const handleChange = (e) => {
+    setEmail(e.target.value)
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
     setIsSubscribed(true)
-    setTimeout(setIsSubscribed, 5000, false)
+    setTimeout(resetForm, 5000)
+  }
+
+  const resetForm = () => {
+    setIsSubscribed(false)
+    setEmail('')
   }
 
   return (
@@ -84,11 +94,13 @@ const Footer = () => {
                 className='rounded-xl bg-white w-60 text-sm h-8 p-2 outline-none z-10'
                 type='email'
                 placeholder='email@example.com'
+                value={email}
+                onChange={handleChange}
                 required
               />
               {/* Subscribe Button */}
               <input
-                className='flex justify-center items-center rounded-xl bg-lime-green uppercase font-bold w-60 lg:w-32 h-8 px-4 hover:brightness-110 transition-all duration-500'
+                className='flex justify-center items-center rounded-xl bg-lime-green uppercase font-bold w-60 lg:w-32 h-8 px-4 cursor-pointer hover:brightness-110 transition-all duration-500'
                 type='submit'
                 value='Subscribe'
               />

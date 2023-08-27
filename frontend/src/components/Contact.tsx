@@ -1,6 +1,19 @@
 import Link from 'next/link'
+import { useState } from 'react'
 
 const Contact = () => {
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+  const [message, setMessage] = useState('')
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const mailtoLink = `mailto:hello@indietopia.org?subject=Contact Request - ${firstName} ${lastName}&body=This email was automatically generated from the form you filled in.%0A%0APlease ensure that the information you have provided is correct.%0A%0AFirst Name: ${firstName}%0A%0ALast Name: ${lastName}%0A%0AEmail: ${email}%0A%0APhone (optional): ${phone}%0A%0AHow we can help you?:%0A%0A${message}%0A%0A`
+    window.location.href = mailtoLink
+  }
+
   return (
     <section id='contact' className='scroll-mt-4'>
       <div className='flex justify-center items-center bg-dark-blue w-full h-full overflow-x-hidden'>
@@ -19,7 +32,7 @@ const Contact = () => {
               <div className='p-2 pl-3'>
                 <h3 className='text-md font-bold uppercase'>Get in touch!</h3>
               </div>
-              <form className='flex flex-col p-2'>
+              <form className='flex flex-col p-2' onSubmit={handleSubmit}>
                 {/* Input Wrapper */}
                 <div className='flex flex-col lg:flex-row gap-x-6'>
                   {/* Left Side Input */}
@@ -31,6 +44,10 @@ const Contact = () => {
                       <input
                         className='rounded-xl bg-slate-200 text-sm w-full h-8 p-2 outline-none z-10'
                         type='text'
+                        name='fname'
+                        value={firstName}
+                        onChange={(e) => setFirstName(e.target.value)}
+                        required
                       />
                     </div>
 
@@ -41,6 +58,10 @@ const Contact = () => {
                       <input
                         className='rounded-xl bg-slate-200 text-sm w-full h-8 p-2 outline-none z-10'
                         type='text'
+                        name='lname'
+                        value={lastName}
+                        onChange={(e) => setLastName(e.target.value)}
+                        required
                       />
                     </div>
                   </div>
@@ -52,7 +73,11 @@ const Contact = () => {
                       </label>
                       <input
                         className='rounded-xl bg-slate-200 w-full text-sm h-8 p-2 outline-none z-10'
-                        type='text'
+                        type='email'
+                        name='email'
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
                       />
                     </div>
 
@@ -62,7 +87,10 @@ const Contact = () => {
                       </label>
                       <input
                         className='rounded-xl bg-slate-200  w-full h-8 p-2 outline-none z-10'
-                        type='text'
+                        type='tel'
+                        name='phone'
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
                       />
                     </div>
                   </div>
@@ -76,13 +104,15 @@ const Contact = () => {
                     className='bg-slate-200 rounded-xl outline-none p-2'
                     cols={7}
                     rows={7}
+                    onChange={(e) => setMessage(e.target.value)}
+                    required
                   ></textarea>
                   {/* Send Button */}
-                  <Link href='/'>
-                    <div className='flex justify-center items-center rounded-xl bg-lime-green w-full h-10 mt-4 mb-0 hover:brightness-110 transition-all duration-500'>
-                      <span className='uppercase font-bold'>Send</span>
-                    </div>
-                  </Link>
+                  <input
+                    className='flex justify-center items-center rounded-xl bg-lime-green uppercase font-bold cursor-pointer w-full h-10 mt-4 mb-0 hover:brightness-110 transition-all duration-500'
+                    type='submit'
+                    value='Send'
+                  />
                 </div>
               </form>
             </div>
