@@ -15,6 +15,7 @@ const PreviewPost = lazy(() => import('../../components/PreviewPost'))
 const draftQuery = groq`*[_type == "post" && slug.current == $slug && (_id in path('drafts.**'))][0]{
   _id,
   title, 
+  publishedAt,
   "name": author->name, 
   "categories": categories[] -> title, 
   "authorImage": author->image,
@@ -28,11 +29,16 @@ const draftQuery = groq`*[_type == "post" && slug.current == $slug && (_id in pa
 const publishedQuery = groq`*[_type == "post" && slug.current == $slug && !(_id in path('drafts.**'))][0]{
     _id,
     title,
+    publishedAt,
     "name": author->name,
     "categories": categories[] -> title,
     "authorImage": author->image,
     mainImage,
     body,
+    // This is hard-coded and wouldn't work for multiple shopstoryBlock references! 👇🏻
+    "shopstoryEmbedded": body[1] -> {
+      "content": content
+    },
     "shopstoryRawContent": shopstoryBlock[] -> {
       "content": content
     }
@@ -57,6 +63,8 @@ export const getStaticProps = async ({ params, preview = false }) => {
 
   let post = await sanityClient.fetch(query, { slug })
 
+  console.log(post)
+
   if (post === null && preview) {
     post = await sanityClient.fetch(publishedQuery, { slug })
   }
@@ -70,7 +78,6 @@ export const getStaticProps = async ({ params, preview = false }) => {
     const renderableContent = post.shopstoryRawContent.map((obj) =>
       shopstoryClient.add(obj.content.en)
     )
-
     const meta = await shopstoryClient.build()
 
     return {

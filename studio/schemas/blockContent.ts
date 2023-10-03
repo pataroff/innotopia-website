@@ -1,4 +1,5 @@
 import {defineType, defineArrayMember} from 'sanity'
+import shopstoryBlock from './shopstory-block'
 
 /**
  * This is the schema definition for the rich text fields used for
@@ -62,6 +63,10 @@ export default defineType({
     defineArrayMember({
       type: 'image',
       options: {hotspot: true},
+    }),
+    defineArrayMember({
+      type: 'reference',
+      to: [{type: 'shopstoryBlock'}],
     }),
   ],
 })

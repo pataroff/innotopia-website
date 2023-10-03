@@ -1,6 +1,5 @@
 import Link from 'next/link'
-import Image from 'next/image'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faSquareFacebook,
@@ -9,18 +8,29 @@ import {
   faLinkedin,
 } from '@fortawesome/free-brands-svg-icons'
 
-import pataroffLogo from '../../../public/pataroff_logo.png'
-
 const Footer = () => {
   const [isSubscribed, setIsSubscribed] = useState(false)
   const [email, setEmail] = useState('')
+  const emailRef = useRef()
 
   const handleChange = (e) => {
     setEmail(e.target.value)
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
+    const res = await fetch('/api/subscribeUser', {
+      body: JSON.stringify({
+        email: emailRef.current.value,
+      }),
+
+      headers: {
+        'Content-Type': 'application/json',
+      },
+
+      method: 'POST',
+    })
+
     setIsSubscribed(true)
     setTimeout(resetForm, 5000)
   }
@@ -111,6 +121,7 @@ const Footer = () => {
                 type='email'
                 placeholder='email@example.com'
                 value={email}
+                ref={emailRef}
                 onChange={handleChange}
                 required
               />

@@ -60,7 +60,7 @@ const Main = () => {
         {/* Main Wrapper */}
         <div className='flex justify-center items-center'>
           {/* Wrapper Containers */}
-          <div className='flex flex-col-reverse md:flex-row justify-center items-center overflow-x-hidden lg:container'>
+          <div className='flex flex-col-reverse md:flex-row justify-center items-center overflow-x-hidden px-32 lg:container'>
             {/* Text Container */}
             <div className='flex flex-col font-poppins gap-y-4 p-24 lg:ml-14'>
               <h3 className='text-lg font-light'>
