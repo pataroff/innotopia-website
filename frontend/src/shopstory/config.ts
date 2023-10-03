@@ -1,6 +1,6 @@
 import type { Config } from '@shopstory/core'
 import { sanityPlugin } from '@shopstory/sanity'
-import sanityConfig from '../../../studio/sanity.config'
+// import sanityConfig from '../../../studio/sanity.config'
 
 export const shopstoryConfig: Config = {
   // ...
