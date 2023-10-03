@@ -21,6 +21,7 @@ const Footer = () => {
     e.preventDefault()
     const res = await fetch('/api/subscribeUser', {
       body: JSON.stringify({
+        //@ts-ignore
         email: emailRef.current.value,
       }),
 
@@ -121,6 +122,7 @@ const Footer = () => {
                 type='email'
                 placeholder='email@example.com'
                 value={email}
+                //@ts-ignore
                 ref={emailRef}
                 onChange={handleChange}
                 required
