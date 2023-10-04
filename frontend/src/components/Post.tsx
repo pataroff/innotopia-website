@@ -46,9 +46,9 @@ const Post = ({ post, renderableContent, meta }) => {
       },
       // This works but only if there is a reference inside shopstoryRawContent! 👇🏻
       reference: ({ value }) => {
-        if (value) {
-          console.log(value)
-        }
+        // if (value) {
+        //   console.log(value)
+        // }
         return (
           //@ts-ignore
           <DemoShopstoryProvider>
