@@ -16,9 +16,9 @@ const Contact = () => {
 
   return (
     <section id='contact' className='scroll-mt-4'>
-      <div className='flex justify-center items-center bg-dark-blue w-full h-full overflow-x-hidden lg:px-32'>
+      <div className='flex justify-center items-center bg-dark-blue w-full h-full overflow-x-hidden'>
         {/* Main Wrapper */}
-        <div className='flex flex-col lg:flex-row justify-center gap-x-8 gap-y-16 items-center lg:py-16 py-8 lg:px-40 px-12 w-full container'>
+        <div className='flex flex-col lg:flex-row justify-center gap-x-8 gap-y-16 items-center lg:py-16 py-8 lg:px-64 px-12 w-full container'>
           {/* Left Container Wrapper */}
           <div className='flex flex-col justify-center lg:items-start items-center font-poppins w-full gap-y-6 container'>
             {/* Heading Container */}
