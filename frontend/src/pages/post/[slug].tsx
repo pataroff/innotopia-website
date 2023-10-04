@@ -50,14 +50,14 @@ export async function getStaticPaths() {
   )
 
   return {
-    paths: paths.map((slug) => ({ params: { slug } })),
-    fallback: true,
+    paths: paths.map((slug) => ({ params: { slug: slug } })),
+    fallback: false,
   }
 }
 
 export const getStaticProps = async ({ params, preview = false }) => {
   // It's important to default the slug so that it doesn't return "undefined"
-  const { slug } = params
+  const { slug = '' } = params
 
   const query = preview ? draftQuery : publishedQuery
 
