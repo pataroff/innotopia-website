@@ -23,7 +23,7 @@ const Services = ({ services }) => {
             <div className='bg-lime-green h-2 w-full z-0 -mt-2'></div>
           </div>
           {/* Services Wrapper */}
-          <div className='flex flex-col font-poppins justify-center items-center lg:gap-y-32 md:gap-y-28 px-16 lg:px-0'>
+          <div className='flex flex-col font-poppins justify-center items-center lg:gap-y-32 md:gap-y-28 gap-y-24 px-16 lg:px-0'>
             {/* Service Item */}
             {services.map((service, index) => {
               const isOddIndex = index % 2 !== 0
