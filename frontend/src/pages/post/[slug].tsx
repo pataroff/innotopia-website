@@ -36,9 +36,9 @@ const publishedQuery = groq`*[_type == "post" && slug.current == $slug && !(_id 
     mainImage,
     body,
     // This is hard-coded and wouldn't work for multiple shopstoryBlock references! 👇🏻
-    "shopstoryEmbedded": body[1] -> {
-      "content": content
-    },
+    // "shopstoryEmbedded": body[1] -> {
+    //   "content": content
+    // },
     "shopstoryRawContent": shopstoryBlock[] -> {
       "content": content
     }
@@ -62,8 +62,6 @@ export const getStaticProps = async ({ params, preview = false }) => {
   const query = preview ? draftQuery : publishedQuery
 
   let post = await sanityClient.fetch(query, { slug })
-
-  console.log(post)
 
   if (post === null && preview) {
     post = await sanityClient.fetch(publishedQuery, { slug })
