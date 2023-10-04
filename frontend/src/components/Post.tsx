@@ -66,30 +66,31 @@ const Post = ({ post, renderableContent, meta }) => {
   return (
     <>
       <article>
-        <div className='flex justify-center items-center p-8 md:px-12 lg:px-64 overflow-x-hidden'>
-          <div className='flex flex-col gap-y-4 rounded-2xl drop-shadow-md bg-slate-100 w-full h-full container p-4'>
-            {title ? (
-              <h1 className='flex justify-center items-center text-2xl lg:text-3xl font-poppins font-semibold py-4'>
-                {title}
-              </h1>
-            ) : (
-              <h1>Untitled</h1>
-            )}
-            {mainImage && (
-              <div className='flex justify-center items-center p-4'>
-                <div className='rounded-2xl drop-shadow-md bg-slate-100 h-[400px] w-full overflow-hidden'>
-                  <Image
-                    className='relative object-cover w-full h-full'
-                    src={urlFor(mainImage).url()}
-                    width={1600}
-                    height={585}
-                    alt={title}
-                  />
+        <div className='flex justify-center items-center overflow-x-hidden'>
+          <div className='py-14 md:px-14 px-8 lg:px-64 container '>
+            <div className='flex flex-col gap-y-2 rounded-2xl drop-shadow-md bg-slate-100 w-full h-full p-4'>
+              {title ? (
+                <h1 className='flex justify-center text-center lg:text-left items-center text-2xl lg:text-3xl font-poppins font-semibold py-4 mt-4'>
+                  {title}
+                </h1>
+              ) : (
+                <h1>Untitled</h1>
+              )}
+              {mainImage && (
+                <div className='flex justify-center items-center p-4'>
+                  <div className='rounded-2xl drop-shadow-md bg-slate-100 h-[400px] w-full overflow-hidden'>
+                    <Image
+                      className='relative object-cover w-full h-full'
+                      src={urlFor(mainImage).url()}
+                      width={1600}
+                      height={585}
+                      alt={title}
+                    />
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
 
-            {/* <p className='text-2xl'>Posted in</p>
+              {/* <p className='text-2xl'>Posted in</p>
 
             {categories && (
               <ul className='ml-2'>
@@ -99,32 +100,35 @@ const Post = ({ post, renderableContent, meta }) => {
               </ul>
             )} */}
 
-            <div className='flex flex-row items-center gap-x-2 text-xl font-poppins font-light'>
-              <span>By {name}</span>
-              {authorImage && (
-                <div className='rounded-full drop-shadow-md w-8 h-8 overflow-hidden'>
-                  <img
-                    className='relative object-cover w-full h-full'
-                    src={urlFor(authorImage).url()}
-                    width={800}
-                    height={800}
-                    alt={name}
-                  />
-                </div>
-              )}
-              <span>
-                | Published on{' '}
-                {new Date(post.publishedAt).toLocaleDateString('en-GB', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric',
-                })}
-              </span>
-            </div>
+              <div className='flex lg:flex-row flex-col items-center gap-x-2 gap-y-2 text-xl font-poppins'>
+                <span className='flex flex-row gap-x-2 items-center font-light'>
+                  By {name}
+                  {authorImage && (
+                    <div className='rounded-full drop-shadow-md w-8 h-8 overflow-hidden'>
+                      <img
+                        className='relative object-cover w-full h-full'
+                        src={urlFor(authorImage).url()}
+                        width={800}
+                        height={800}
+                        alt={name}
+                      />
+                    </div>
+                  )}
+                </span>
 
-            <PortableText value={body} components={ptComponents} />
+                <span className='font-light'>
+                  Published on{' '}
+                  {new Date(post.publishedAt).toLocaleDateString('en-GB', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}
+                </span>
+              </div>
 
-            {/* {shopstoryRawContent != null && (
+              <PortableText value={body} components={ptComponents} />
+
+              {/* {shopstoryRawContent != null && (
               //@ts-ignore
               <DemoShopstoryProvider>
                 <ShopstoryMetadataProvider meta={meta}>
@@ -134,6 +138,7 @@ const Post = ({ post, renderableContent, meta }) => {
                 </ShopstoryMetadataProvider>
               </DemoShopstoryProvider>
             )} */}
+            </div>
           </div>
         </div>
       </article>
