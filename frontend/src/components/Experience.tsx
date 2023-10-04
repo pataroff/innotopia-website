@@ -13,7 +13,7 @@ const Experience = ({ companies }) => {
             </h3>
           </div>
           {/* Companies Container */}
-          <div className='flex flex-col gap-y-24 md:flex-row justify-center items-center gap-x-28 py-14'>
+          <div className='flex flex-col gap-y-24 md:flex-row justify-center items-center lg:gap-x-28 md:gap-x-16 py-14 md:px-20'>
             {/* Company Logo */}
             {companies.map((company) => (
               <div key={company._id}>

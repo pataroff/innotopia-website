@@ -15,13 +15,13 @@ const Testimonials = ({ testimonials }) => {
           </div>
         </div>
         {/* Testimonials Wrapper */}
-        <div className='grid lg:grid-cols-3 gap-y-16 lg:gap-x-8 justify-center items-center p-14'>
+        <div className='grid lg:grid-cols-3 gap-y-16 lg:gap-x-8 justify-center items-center py-14'>
           {/* Testimonial Item */}
           {testimonials.map((testimonial) => {
             return (
               <div
                 key={testimonial._id}
-                className='flex flex-col flex-1 rounded-md bg-slate-100 h-full w-72'
+                className='flex flex-col flex-1 rounded-lg drop-shadow-md bg-slate-100 h-full lg:w-72 w-full'
               >
                 {/* Person Image */}
                 <div className='relative rounded-full overflow-hidden bg-slate-500 w-20 h-20 -mt-6 ml-8 hover:scale-110 transition-transform duration-150'>
@@ -44,7 +44,7 @@ const Testimonials = ({ testimonials }) => {
                   </div>
                 </div>
                 {/* Company Info Wrapper */}
-                <div className='flex flex-row justify-center gap-x-4 p-6'>
+                <div className='flex flex-row md:justify-start justify-center gap-x-4 p-6'>
                   {/* Company Logo */}
                   <div className='relative bg-white h-9'>
                     <Image

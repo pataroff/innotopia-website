@@ -99,7 +99,7 @@ const Post = ({ post, renderableContent, meta }) => {
               </ul>
             )} */}
 
-            <div className='flex flex-row items-center gap-x-2 text-xl font-poppins font-light whitespace-nowrap'>
+            <div className='flex flex-row items-center gap-x-2 text-xl font-poppins font-light'>
               <span>By {name}</span>
               {authorImage && (
                 <div className='rounded-full drop-shadow-md w-8 h-8 overflow-hidden'>

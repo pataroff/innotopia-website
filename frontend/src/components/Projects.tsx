@@ -26,7 +26,7 @@ const Projects = ({ projects }) => {
             </div>
           </div>
           {/* Rounded Box Wrapper */}
-          <div className='px-56 py-8'>
+          <div className='lg:px-56 px-12 py-8'>
             {/* Rounded Box Container */}
             <div className='rounded-2xl drop-shadow-md bg-slate-50 w-full h-full container p-8'>
               {/* Projects Wrapper */}
