@@ -90,7 +90,11 @@ const Footer = () => {
             <div className='flex flex-row justify-center items-center text-xs font-light'>
               <h3>
                 Web design by{' '}
-                <Link href='https://pataroff.com' className='hover:font-medium'>
+                <Link
+                  href='https://pataroff.com'
+                  target='_blank'
+                  className='hover:font-medium'
+                >
                   Pataroff
                 </Link>
               </h3>

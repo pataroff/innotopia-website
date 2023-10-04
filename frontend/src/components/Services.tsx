@@ -13,7 +13,7 @@ const Services = ({ services }) => {
       {/* Main Wrapper */}
       <div className='flex justify-center items-center'>
         {/* Main Container */}
-        <div className='flex flex-col justify-center items-center overflow-x-hidden lg:px-32 py-14'>
+        <div className='flex flex-col justify-center items-center overflow-x-hidden lg:px-64 py-14 container'>
           {/* Text Container */}
           <div className='flex flex-col p-14'>
             <h1 className='relative font-poppins lg:text-3xl text-2xl font-bold z-10'>
@@ -23,7 +23,7 @@ const Services = ({ services }) => {
             <div className='bg-lime-green h-2 w-full z-0 -mt-2'></div>
           </div>
           {/* Services Wrapper */}
-          <div className='flex flex-col font-poppins justify-center items-center gap-y-32'>
+          <div className='flex flex-col font-poppins justify-center items-center gap-y-32 px-16 lg:px-0'>
             {/* Service Item */}
             {services.map((service, index) => {
               const isOddIndex = index % 2 !== 0
@@ -38,11 +38,13 @@ const Services = ({ services }) => {
                 >
                   {/* Service Text */}
                   <div className='flex flex-col gap-y-4 justify-center'>
-                    <h2 className='text-2xl font-bold'>
+                    <h2 className='text-2xl font-bold lg:text-left text-center'>
                       {service.title ? service.title : 'Untitled'}
                     </h2>
                     {service.body && service.body[0]?.children[0]?.text ? (
-                      <p>{service.body[0].children[0].text}</p>
+                      <p className='text-center lg:text-left'>
+                        {service.body[0].children[0].text}
+                      </p>
                     ) : (
                       <p>No Description Available</p>
                     )}
