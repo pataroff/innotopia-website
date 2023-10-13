@@ -28,6 +28,7 @@ export const getStaticProps = async ({ preview = false }) => {
       preview,
       data,
     },
+    revalidate: 10,
   }
 }
 

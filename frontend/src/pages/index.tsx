@@ -27,6 +27,7 @@ export const getStaticProps = async () => {
       projects,
       testimonials,
     },
+    revalidate: 10,
   }
 }
 

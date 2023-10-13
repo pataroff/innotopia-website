@@ -6,6 +6,8 @@ import shopstoryBlock from './shopstory-block'
 import service from './service'
 import company from './company'
 import testimonial from './testimonial'
+import teamMember from './teamMember'
+import intern from './intern'
 
 export const schemaTypes = [
   post,
@@ -16,4 +18,6 @@ export const schemaTypes = [
   service,
   company,
   testimonial,
+  teamMember,
+  intern,
 ]

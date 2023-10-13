@@ -14,6 +14,7 @@ export const getStaticProps = async () => {
       teamMembers,
       interns,
     },
+    revalidate: 10,
   }
 }
 
