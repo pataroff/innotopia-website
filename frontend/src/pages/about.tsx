@@ -32,13 +32,13 @@ const About = ({ teamMembers, interns }) => {
                 About
               </h1>
               <p className='lg:text-lg text-md text-center lg:text-left'>
-                Welcome to Innotopia, born from Indietopia's creative foundation
-                and dedicated to transforming imaginative ideas into successful
-                commercial ventures. We bridge creativity and commerce to make
-                dreams a reality. Join us as we break new ground, redefine
-                boundaries, and foster a vibrant ecosystem where innovation
-                thrives. Together, we create a brighter future where creativity
-                and profitability unite.
+                Welcome to Innotopia, born from Indietopia&apos;s creative
+                foundation and dedicated to transforming imaginative ideas into
+                successful commercial ventures. We bridge creativity and
+                commerce to make dreams a reality. Join us as we break new
+                ground, redefine boundaries, and foster a vibrant ecosystem
+                where innovation thrives. Together, we create a brighter future
+                where creativity and profitability unite.
               </p>
             </div>
             {/* Image */}
