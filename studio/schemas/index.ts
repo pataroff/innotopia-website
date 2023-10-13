@@ -8,6 +8,7 @@ import company from './company'
 import testimonial from './testimonial'
 import teamMember from './teamMember'
 import intern from './intern'
+import event from './event'
 
 export const schemaTypes = [
   post,
@@ -20,4 +21,5 @@ export const schemaTypes = [
   testimonial,
   teamMember,
   intern,
+  event,
 ]
