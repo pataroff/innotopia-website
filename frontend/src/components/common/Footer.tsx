@@ -45,7 +45,7 @@ const Footer = () => {
     <footer>
       <div className='flex justify-center items-center bg-dark-blue w-full'>
         {/* Main Wrapper */}
-        <div className='flex flex-col lg:flex-row justify-center items-center gap-y-8 p-8 w-full h-full container'>
+        <div className='flex flex-col lg:flex-row justify-center items-center gap-y-8 p-8 w-full h-full container '>
           {/* Social Media Links */}
           <div className='flex flex-row justify-center gap-x-2 w-full h-full lg:order-1 order-2'>
             <Link

@@ -73,7 +73,7 @@ const Nav = () => {
             <>
               {/* Menu Items */}
               <div className='flex flex-col justify-center items-center gap-y-6 p-4 bg-dark-blue font-poppins text-white text-md font-bold'>
-                <Link href='/' onClick={() => setIsOpen(!isOpen)}>
+                <Link href='/about' onClick={() => setIsOpen(!isOpen)}>
                   <span>About</span>
                 </Link>
 
@@ -122,7 +122,7 @@ const Nav = () => {
               {/* Menu Item */}
               <div className='inline-block relative group'>
                 <li className='relative'>
-                  <Link href='/' className='inline-block h-full w-full'>
+                  <Link href='/about' className='inline-block h-full w-full'>
                     About
                   </Link>
                   <div className='bg-lime-green h-0.5 w-0 absolute group-hover:w-full transition-all duration-300'></div>

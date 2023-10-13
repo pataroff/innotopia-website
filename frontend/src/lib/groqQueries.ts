@@ -29,3 +29,19 @@ export const testimonialsQuery = groq`*[_type == 'testimonial'] | order(publishe
     companyName,
     "comapnyLogo": companyLogo.asset->url
   }`
+
+export const teamMembersQuery = groq`*[_type == 'teamMember'] | order(_createdAt asc){
+  _id,
+  personName,
+  personPosition,
+  "personImage": personImage.asset->url,
+}`
+
+export const internsQuery = groq`*[_type == 'intern'] | order(publishedAt desc){
+  _id,
+  personName,
+  personPosition,
+  "personImage": personImage.asset->url,
+  body,
+  personPortfolioLink
+}`
