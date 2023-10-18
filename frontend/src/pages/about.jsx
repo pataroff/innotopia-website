@@ -1,13 +1,13 @@
-import Image from 'next/image'
+import Image from 'next/image';
 
-import innotopiaLogoBlack from '../../public/innotopia-logo-black.svg'
+import innotopiaLogoBlack from '../../public/innotopia-logo-black.svg';
 
-import { sanityClient } from '../lib/sanity.client'
-import { teamMembersQuery, internsQuery } from '../lib/groqQueries'
+import { sanityClient } from '../lib/sanity.client';
+import { teamMembersQuery, internsQuery } from '../lib/groqQueries';
 
 export const getStaticProps = async () => {
-  let teamMembers = await sanityClient.fetch(teamMembersQuery)
-  let interns = await sanityClient.fetch(internsQuery)
+  let teamMembers = await sanityClient.fetch(teamMembersQuery);
+  let interns = await sanityClient.fetch(internsQuery);
 
   return {
     props: {
@@ -15,8 +15,8 @@ export const getStaticProps = async () => {
       interns,
     },
     revalidate: 10,
-  }
-}
+  };
+};
 
 const About = ({ teamMembers, interns }) => {
   return (
@@ -100,7 +100,7 @@ const About = ({ teamMembers, interns }) => {
               {interns.map((intern) => (
                 <div
                   key={intern._id}
-                  className='rounded-3xl w-full h-full border border-neutral-200 drop-shadow-md'
+                  className='rounded-3xl w-full h-full border border-neutral-200'
                 >
                   <div className='flex flex-col lg:flex-row justify-center items-center gap-x-10 gap-y-8 p-8'>
                     <div className='flex flex-col gap-y-2'>
@@ -160,6 +160,6 @@ const About = ({ teamMembers, interns }) => {
         </div>
       </div>
     </>
-  )
-}
-export default About
+  );
+};
+export default About;

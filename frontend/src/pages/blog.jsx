@@ -1,11 +1,10 @@
-import { lazy } from 'react'
-import { groq } from 'next-sanity'
-import type { SanityDocument } from '@sanity/client'
-import { sanityClient } from '../lib/sanity.client'
-import Posts from '../components/Posts'
-import { PreviewSuspense } from 'next-sanity/preview'
+import { lazy } from 'react';
+import { groq } from 'next-sanity';
+import { sanityClient } from '../lib/sanity.client';
+import Posts from '../components/Posts';
+import { PreviewSuspense } from 'next-sanity/preview';
 
-const PreviewPosts = lazy(() => import('../components/PreviewPosts'))
+const PreviewPosts = lazy(() => import('../components/PreviewPosts'));
 const postsQuery = groq`*[_type == "post" && !(_id in path('drafts.**')) && publishedAt < now()] | order(publishedAt desc){
   _id,
   title,
@@ -14,14 +13,14 @@ const postsQuery = groq`*[_type == "post" && !(_id in path('drafts.**')) && publ
   "mainImage": mainImage.asset->url,
   body,
   publishedAt
-}`
+}`;
 
 export const getStaticProps = async ({ preview = false }) => {
   if (preview) {
-    return { props: { preview } }
+    return { props: { preview } };
   }
 
-  const data = await sanityClient.fetch(postsQuery)
+  const data = await sanityClient.fetch(postsQuery);
 
   return {
     props: {
@@ -29,16 +28,10 @@ export const getStaticProps = async ({ preview = false }) => {
       data,
     },
     revalidate: 10,
-  }
-}
+  };
+};
 
-export default function Home({
-  preview,
-  data,
-}: {
-  preview: Boolean
-  data: SanityDocument[]
-}) {
+export default function Home({ preview, data }) {
   return (
     <>
       <div>
@@ -54,5 +47,5 @@ export default function Home({
         )}
       </div>
     </>
-  )
+  );
 }
