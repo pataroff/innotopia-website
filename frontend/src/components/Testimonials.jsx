@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from 'next/image';
 
 const Testimonials = ({ testimonials }) => {
   return (
@@ -24,7 +24,7 @@ const Testimonials = ({ testimonials }) => {
                 className='flex flex-col flex-1 rounded-lg drop-shadow-md bg-slate-100 h-full lg:w-72 w-full'
               >
                 {/* Person Image */}
-                <div className='relative rounded-full overflow-hidden bg-slate-500 w-20 h-20 -mt-6 ml-8 hover:scale-110 transition-transform duration-150'>
+                <div className='relative rounded-full overflow-hidden z-0 bg-slate-500 w-20 h-20 -mt-6 ml-8 hover:scale-110 transition-transform duration-150'>
                   <Image
                     className='relative object-cover w-full h-full'
                     src={testimonial.personImage}
@@ -66,11 +66,11 @@ const Testimonials = ({ testimonials }) => {
                   </div>
                 </div>
               </div>
-            )
+            );
           })}
         </div>
       </div>
     </section>
-  )
-}
-export default Testimonials
+  );
+};
+export default Testimonials;
