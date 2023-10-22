@@ -56,7 +56,7 @@ const Testimonials = ({ testimonials }) => {
                     />
                   </div>
                   {/* Person Name and Position */}
-                  <div className='flex flex-col font-poppins'>
+                  <div className='flex flex-col font-poppins whitespace-nowrap'>
                     <h3 className='text-sm font-medium'>
                       {testimonial.personName}
                     </h3>
