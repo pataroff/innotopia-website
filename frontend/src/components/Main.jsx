@@ -85,8 +85,8 @@ const Main = () => {
               </Link>
             </div>
             {/* Hero Container */}
-            <div className='relative h-[550px] w-[600px] md:w-[1000px] lg:h-[600px] lg:w-[600px]'>
-              <div className='absolute mt-24 lg:mt-0 md:mt-0 inset-0 z-10'>
+            <div className='relative h-[500px] w-[600px] md:w-[1000px] lg:h-[600px] lg:w-[600px]'>
+              <div className='absolute top-24 lg:top-0 md:top-0 inset-0 z-10'>
                 <Canvas>
                   <OrbitControls
                     enablePan={false}
@@ -109,7 +109,7 @@ const Main = () => {
                 alt='Hex Tile'
               />
             </div> */}
-              <div className='absolute right-0 lg:top-10 md:top-5 z-0 p-14 pr-0 lg:w-[450px] lg:h-[550px] md:w-[350px] md:h-[450px] w-[500px] h-[700px]'>
+              <div className='absolute right-0 lg:top-10 md:top-5 z-0 p-14 pr-0 lg:w-[450px] lg:h-[550px] md:w-[350px] md:h-[450px] w-[500px] h-[650px]'>
                 <Image
                   priority
                   className='h-full w-full'
