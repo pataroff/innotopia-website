@@ -1,23 +1,23 @@
-import Link from 'next/link'
-import Image from 'next/image'
+import Link from 'next/link';
+import Image from 'next/image';
 
-import hexTile from '../../public/hex-tile.png'
-import bgAccent from '../../public/main-bg-accent.png'
+import hexTile from '../../public/hex-tile.png';
+import bgAccent from '../../public/main-bg-accent.png';
 
-import { FaArrowRight } from 'react-icons/fa'
+import { FaArrowRight } from 'react-icons/fa';
 
 // Reacth Three Fiber
-import { Canvas, useLoader, useFrame } from '@react-three/fiber'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
-import { OrbitControls } from '@react-three/drei'
+import { Canvas, useLoader, useFrame } from '@react-three/fiber';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { OrbitControls } from '@react-three/drei';
 
-import { useRef, useState, useEffect } from 'react'
+import { useRef, useState, useEffect } from 'react';
 
 const HexTileModel = () => {
-  const hexTileRef = useRef()
-  const [scale, setScale] = useState(2)
+  const hexTileRef = useRef();
+  const [scale, setScale] = useState(2);
 
-  const gltf = useLoader(GLTFLoader, '/GroningenHex.gltf')
+  const gltf = useLoader(GLTFLoader, '/GroningenHex.gltf');
 
   // useFrame(({ clock }) => {
   //   // hexTileRef.current.rotation.y = clock.getElapsedTime()
@@ -26,19 +26,18 @@ const HexTileModel = () => {
 
   useEffect(() => {
     const updateScale = () => {
-      const isMediumScreen =
-        window.innerWidth >= 768 && window.innerWidth <= 1024
-      const newScale = isMediumScreen ? 1.5 : 2
-      setScale(newScale)
-    }
+      const isMobile = window.innerWidth <= 768;
+      const newScale = isMobile ? 2.3 : 1.8;
+      setScale(newScale);
+    };
 
-    window.addEventListener('resize', updateScale)
-    updateScale() // Call the function initially
+    window.addEventListener('resize', updateScale);
+    updateScale(); // Call the function initially
 
     return () => {
-      window.removeEventListener('resize', updateScale)
-    }
-  }, [])
+      window.removeEventListener('resize', updateScale);
+    };
+  }, []);
 
   return (
     <>
@@ -46,12 +45,13 @@ const HexTileModel = () => {
         object={gltf.scene}
         scale={scale}
         ref={hexTileRef}
+        position={[0, -0.25, 0]}
         // Initial Rotation Values - [0.4, -2.3, -0.015]
         rotation={[0.4, -2.3, -0.015]}
       />
     </>
-  )
-}
+  );
+};
 
 const Main = () => {
   return (
@@ -85,8 +85,8 @@ const Main = () => {
               </Link>
             </div>
             {/* Hero Container */}
-            <div className='relative h-[600px] w-[600px] md:w-[1000px] lg:w-[600px]'>
-              <div className='absolute inset-0 z-10 p-14 pr-0'>
+            <div className='relative h-[550px] w-[600px] md:w-[1000px] lg:h-[600px] lg:w-[600px]'>
+              <div className='absolute mt-24 lg:mt-0 md:mt-0 inset-0 z-10'>
                 <Canvas>
                   <OrbitControls
                     enablePan={false}
@@ -109,7 +109,7 @@ const Main = () => {
                 alt='Hex Tile'
               />
             </div> */}
-              <div className='absolute right-0 lg:top-10 md:top-20 z-0 p-14 pr-0 lg:w-[450px] lg:h-[550px] md:w-[350px] md:h-[450px] w-[500px] h-[700px]'>
+              <div className='absolute right-0 lg:top-10 md:top-5 z-0 p-14 pr-0 lg:w-[450px] lg:h-[550px] md:w-[350px] md:h-[450px] w-[500px] h-[700px]'>
                 <Image
                   priority
                   className='h-full w-full'
@@ -122,6 +122,6 @@ const Main = () => {
         </div>
       </section>
     </>
-  )
-}
-export default Main
+  );
+};
+export default Main;
