@@ -1,8 +1,22 @@
-import Link from 'next/link'
-import { useState } from 'react'
+import Link from 'next/link';
+import { useState } from 'react';
 
-const Events = () => {
-  const [displayCurrentEvents, setDisplayCurrentEvents] = useState(false)
+import { sanityClient } from '../lib/sanity.client';
+import { eventsQuery } from '../lib/groqQueries';
+
+export const getStaticProps = async () => {
+  let events = await sanityClient.fetch(eventsQuery);
+
+  return {
+    props: {
+      events,
+    },
+    revalidate: 10,
+  };
+};
+
+const Events = ({ events }) => {
+  const [displayCurrentEvents, setDisplayCurrentEvents] = useState(false);
 
   return (
     <>
@@ -25,22 +39,50 @@ const Events = () => {
           </div>
           {!displayCurrentEvents && (
             <div className='flex flex-col font-poppins text-lg font-normal'>
-              <div>Past Event 1</div>
-              <div>Past Event 2</div>
-              <div>Past Event 3</div>
+              {!events ||
+                (events.filter(
+                  (event) => event.eventDate < new Date().toISOString()
+                ).length === 0 && (
+                  <div>
+                    <h1>There are no past events!</h1>
+                  </div>
+                ))}
+
+              {events
+                .filter((event) => event.eventDate < new Date().toISOString())
+                .map((event) => (
+                  <div key={event._id}>
+                    <h1>{event.eventName}</h1>
+                    <h3>{event.eventDate}</h3>
+                  </div>
+                ))}
             </div>
           )}
 
           {displayCurrentEvents && (
             <div className='flex flex-col font-poppins text-lg font-normal'>
-              <h3>Current Event 1</h3>
-              <h3>Current Event 2</h3>
-              <h3>Current Event 3</h3>
+              {!events ||
+                (events.filter(
+                  (event) => event.eventDate > new Date().toISOString()
+                ).length === 0 && (
+                  <div>
+                    <h1>There are no current events!</h1>
+                  </div>
+                ))}
+
+              {events
+                .filter((event) => event.eventDate > new Date().toISOString())
+                .map((event) => (
+                  <div key={event._id}>
+                    <h1>{event.eventName}</h1>
+                    <h3>{event.eventDate}</h3>
+                  </div>
+                ))}
             </div>
           )}
         </div>
       </div>
     </>
-  )
-}
-export default Events
+  );
+};
+export default Events;

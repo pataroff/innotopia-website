@@ -6,9 +6,14 @@ export default defineType({
   type: 'document',
   fields: [
     defineField({
-      name: 'title',
-      title: 'Title',
+      name: 'eventName',
+      title: 'Event Name',
       type: 'string',
+    }),
+    defineField({
+      name: 'eventDate',
+      title: 'Event Date',
+      type: 'datetime',
     }),
   ],
 })

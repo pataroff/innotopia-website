@@ -9,7 +9,7 @@ import {mediaAssetSource} from 'sanity-plugin-media'
 // Icon Picker
 import {iconPicker} from 'sanity-plugin-icon-picker'
 
-const SITE_URL = 'http://localhost:3000' // root URL of your site
+const SITE_URL = 'https://innotopia.tech' // root URL of your site
 
 export default defineConfig({
   name: 'default',
