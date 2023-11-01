@@ -1,15 +1,15 @@
-import Image from 'next/image'
+import Image from 'next/image';
 
-import { sanityClient } from '../lib/sanity.client'
-import imageUrlBuilder from '@sanity/image-url'
-import { PortableText } from '@portabletext/react'
+import { sanityClient } from '../lib/sanity.client';
+import imageUrlBuilder from '@sanity/image-url';
+import { PortableText } from '@portabletext/react';
 
 // Shopstory Plugin
-import { DemoShopstoryProvider } from '../shopstory/provider'
-import { Shopstory, ShopstoryMetadataProvider } from '@shopstory/react'
+import { DemoShopstoryProvider } from '../shopstory/provider';
+import { Shopstory, ShopstoryMetadataProvider } from '@shopstory/react';
 
 function urlFor(source) {
-  return imageUrlBuilder(sanityClient).image(source)
+  return imageUrlBuilder(sanityClient).image(source);
 }
 
 const Post = ({ post, renderableContent, meta }) => {
@@ -23,13 +23,13 @@ const Post = ({ post, renderableContent, meta }) => {
     authorImage,
     body,
     shopstoryRawContent,
-  } = post
+  } = post;
 
   const ptComponents = {
     types: {
       image: ({ value }) => {
         if (!value?.asset?._ref) {
-          return null
+          return null;
         }
         return (
           <img
@@ -42,15 +42,11 @@ const Post = ({ post, renderableContent, meta }) => {
               .auto('format')
               .url()}
           />
-        )
+        );
       },
       // This works but only if there is a reference inside shopstoryRawContent! 👇🏻
-      reference: ({ value }) => {
-        // if (value) {
-        //   console.log(value)
-        // }
+      reference: () => {
         return (
-          //@ts-ignore
           <DemoShopstoryProvider>
             <ShopstoryMetadataProvider meta={meta}>
               {renderableContent.map((renderableContent, index) => (
@@ -58,10 +54,10 @@ const Post = ({ post, renderableContent, meta }) => {
               ))}
             </ShopstoryMetadataProvider>
           </DemoShopstoryProvider>
-        )
+        );
       },
     },
-  }
+  };
 
   return (
     <>
@@ -143,7 +139,7 @@ const Post = ({ post, renderableContent, meta }) => {
         </div>
       </article>
     </>
-  )
-}
+  );
+};
 
-export default Post
+export default Post;

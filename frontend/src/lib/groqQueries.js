@@ -6,7 +6,7 @@ export const companiesQuery = groq`*[_type == 'company'] | order(publishedAt des
     "logo": mainImage.asset->url
   }`;
 
-export const servicesQuery = groq`*[_type =='service'] | order(publishedAt asc){
+export const servicesQuery = groq`*[_type =='service'] | order(_createdAt asc){
     _id,
     title,
     body,

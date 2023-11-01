@@ -1,14 +1,14 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import { FaArrowRight } from 'react-icons/fa'
+import Link from 'next/link';
+import Image from 'next/image';
+import { FaArrowRight } from 'react-icons/fa';
 
 const Projects = ({ projects }) => {
-  const wordLimit = 50
+  const wordLimit = 50;
 
   const getWords = (text) => {
-    const words = text.trim().split(' ')
-    return words.slice(0, wordLimit).join(' ')
-  }
+    const words = text.trim().split(' ');
+    return words.slice(0, wordLimit).join(' ');
+  };
 
   return (
     <section id='projects' className='scroll-mt-16'>
@@ -92,7 +92,7 @@ const Projects = ({ projects }) => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Projects
+export default Projects;
