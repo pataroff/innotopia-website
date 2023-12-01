@@ -1,5 +1,5 @@
-import Link from 'next/link'
-import { FaArrowRight } from 'react-icons/fa'
+import Link from 'next/link';
+import { FaArrowRight } from 'react-icons/fa';
 
 const CTA = () => {
   return (
@@ -17,11 +17,12 @@ const CTA = () => {
           </div>
           {/* Underline Effect */}
           <p className='font-light text-white px-10 py-4 pb-10 md:px-24 max-w-3xl'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam
-            voluptatibus sapiente quos dolor esse dolorem repudiandae illo earum
-            molestias eum aperiam ullam corporis eos, sunt, maiores officiis a
-            at autem? Quos expedita necessitatibus reiciendis modi voluptatum
-            recusandae sed, enim velit et fuga suscipit labore consequuntur!
+            Innotopia helps the northern digital creative industry blossom,
+            bridging the gap between schools and the industry. Companies that
+            want to innovate through gamification, receive support from starting
+            and professional game developers. Examples of projects are
+            digitizing art, setting up a virtual world for training purposes or
+            giving rewards for repeat purchases.
           </p>
           {/* CTA */}
           <Link href='#contact'>
@@ -33,6 +34,6 @@ const CTA = () => {
         </div>
       </div>
     </section>
-  )
-}
-export default CTA
+  );
+};
+export default CTA;
