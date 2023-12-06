@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaArrowRight } from 'react-icons/fa';
+// import { FaArrowRight } from 'react-icons/fa';
+import { PortableText, toPlainText } from '@portabletext/react';
 
 const Projects = ({ projects }) => {
   const wordLimit = 50;
@@ -65,11 +66,12 @@ const Projects = ({ projects }) => {
                         {project.title ? project.title : 'Untitled'}
                       </h3>
                       {/* Project Description */}
-                      {project.body && project.body[0]?.children[0]?.text ? (
+                      {project.body ? (
                         <p>
-                          {getWords(project.body[0].children[0].text)}
-                          {project.body[0].children[0].text.split(' ').length >
-                            wordLimit && '...'}
+                          {getWords(toPlainText(project.body))}
+                          {getWords(toPlainText(project.body)).endsWith('.')
+                            ? '..'
+                            : '...'}
                         </p>
                       ) : (
                         <p>No Description Available</p>
