@@ -1,18 +1,18 @@
-import Link from 'next/link'
-import Image from 'next/image'
+import Link from 'next/link';
+import Image from 'next/image';
 
-import { useState } from 'react'
+import { useState } from 'react';
 
-import innotopiaLogo from '../../../public/innotopia-logo-white.svg'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons'
+import innotopiaLogo from '../../../public/innotopia-logo-white.svg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 const Nav = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsOpen((prev) => !prev)
-  }
+    setIsOpen((prev) => !prev);
+  };
 
   return (
     <>
@@ -174,19 +174,20 @@ const Nav = () => {
                 </li>
               </div>
               {/* Menu Item */}
-              <div className='inline-block relative group'>
+              {/* Event Page Disabled! */}
+              {/* <div className='inline-block relative group'>
                 <li className='relative'>
                   <Link href='/events' className='inline-block h-full w-full'>
                     Events
                   </Link>
                   <div className='bg-lime-green h-0.5 w-0 absolute group-hover:w-full transition-all duration-300'></div>
                 </li>
-              </div>
+              </div> */}
             </div>
           </div>
         </nav>
       </div>
     </>
-  )
-}
-export default Nav
+  );
+};
+export default Nav;

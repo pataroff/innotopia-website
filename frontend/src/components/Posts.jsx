@@ -1,14 +1,15 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import { FaArrowRight } from 'react-icons/fa'
+import Link from 'next/link';
+import Image from 'next/image';
+// import { FaArrowRight } from 'react-icons/fa'
+import { toPlainText } from '@portabletext/react';
 
 const Posts = ({ posts }) => {
-  const wordLimit = 50
+  const wordLimit = 50;
 
   const getWords = (text) => {
-    const words = text.trim().split(' ')
-    return words.slice(0, wordLimit).join(' ')
-  }
+    const words = text.trim().split(' ');
+    return words.slice(0, wordLimit).join(' ');
+  };
 
   return (
     <>
@@ -53,9 +54,10 @@ const Posts = ({ posts }) => {
                         )}
                       </h3>
                       <p className='font-normal text-md'>
-                        {getWords(post.body[0].children[0].text)}
-                        {post.body[0].children[0].text.split(' ').length >
-                          wordLimit && '...'}
+                        {getWords(toPlainText(post.body))}
+                        {getWords(toPlainText(post.body)).endsWith('.')
+                          ? '..'
+                          : '...'}
                       </p>
                       {/* CTA */}
                       <Link href={`/post/${encodeURIComponent(post.slug)}`}>
@@ -71,7 +73,7 @@ const Posts = ({ posts }) => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Posts
+export default Posts;

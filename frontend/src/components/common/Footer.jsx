@@ -1,24 +1,25 @@
-import Link from 'next/link'
-import { useState, useRef } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Link from 'next/link';
+import { useState, useRef } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faSquareFacebook,
-  faSquareTwitter,
+  // faSquareTwitter,
   faSquareInstagram,
   faLinkedin,
-} from '@fortawesome/free-brands-svg-icons'
+  faSquareXTwitter,
+} from '@fortawesome/free-brands-svg-icons';
 
 const Footer = () => {
-  const [isSubscribed, setIsSubscribed] = useState(false)
-  const [email, setEmail] = useState('')
-  const emailRef = useRef()
+  const [isSubscribed, setIsSubscribed] = useState(false);
+  const [email, setEmail] = useState('');
+  const emailRef = useRef();
 
   const handleChange = (e) => {
-    setEmail(e.target.value)
-  }
+    setEmail(e.target.value);
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const res = await fetch('/api/subscribeUser', {
       body: JSON.stringify({
         //@ts-ignore
@@ -30,16 +31,16 @@ const Footer = () => {
       },
 
       method: 'POST',
-    })
+    });
 
-    setIsSubscribed(true)
-    setTimeout(resetForm, 5000)
-  }
+    setIsSubscribed(true);
+    setTimeout(resetForm, 5000);
+  };
 
   const resetForm = () => {
-    setIsSubscribed(false)
-    setEmail('')
-  }
+    setIsSubscribed(false);
+    setEmail('');
+  };
 
   return (
     <footer>
@@ -70,7 +71,7 @@ const Footer = () => {
             <Link target='_blank' href='https://twitter.com/IndietopiaNL'>
               <FontAwesomeIcon
                 className='text-white hover:text-lime-green transition-colors duration-300'
-                icon={faSquareTwitter}
+                icon={faSquareXTwitter}
                 width={30}
                 height={30}
               />
@@ -142,6 +143,6 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-  )
-}
-export default Footer
+  );
+};
+export default Footer;

@@ -25,9 +25,10 @@ const Post = ({ post, renderableContent, meta }) => {
     shopstoryRawContent,
   } = post;
 
-  const ptComponents = {
+  const serializers = {
     types: {
       image: ({ value }) => {
+        console.log(value);
         if (!value?.asset?._ref) {
           return null;
         }
@@ -54,6 +55,16 @@ const Post = ({ post, renderableContent, meta }) => {
               ))}
             </ShopstoryMetadataProvider>
           </DemoShopstoryProvider>
+        );
+      },
+    },
+
+    marks: {
+      link: ({ value, children }) => {
+        return (
+          <a href={value.href} style={{ textDecoration: 'underline' }}>
+            {children}
+          </a>
         );
       },
     },
@@ -122,7 +133,7 @@ const Post = ({ post, renderableContent, meta }) => {
                 </span>
               </div>
 
-              <PortableText value={body} components={ptComponents} />
+              <PortableText value={body} components={serializers} />
 
               {/* {shopstoryRawContent != null && (
               //@ts-ignore
