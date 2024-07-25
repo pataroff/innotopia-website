@@ -13,7 +13,7 @@ const Services = ({ services }) => {
       {/* Main Wrapper */}
       <div className='flex justify-center items-center'>
         {/* Main Container */}
-        <div className='flex flex-col justify-center items-center overflow-x-hidden lg:px-64 py-14 container'>
+        <div className='flex flex-col justify-center items-center overflow-x-hidden lg:px-56 py-14 container'>
           {/* Text Container */}
           <div className='flex flex-col p-14'>
             <h1 className='relative font-poppins lg:text-3xl text-2xl font-bold z-10'>

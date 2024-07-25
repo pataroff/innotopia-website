@@ -1,23 +1,23 @@
-import Link from 'next/link';
-import Image from 'next/image';
+import Link from 'next/link'
+import Image from 'next/image'
 
-import hexTile from '../../public/hex-tile.png';
-import bgAccent from '../../public/main-bg-accent.png';
+import hexTile from '../../public/hex-tile.png'
+import bgAccent from '../../public/main-bg-accent.png'
 
-import { FaArrowRight } from 'react-icons/fa';
+import { FaArrowRight } from 'react-icons/fa'
 
 // Reacth Three Fiber
-import { Canvas, useLoader, useFrame } from '@react-three/fiber';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import { OrbitControls } from '@react-three/drei';
+import { Canvas, useLoader, useFrame } from '@react-three/fiber'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+import { OrbitControls } from '@react-three/drei'
 
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react'
 
 const HexTileModel = () => {
-  const hexTileRef = useRef();
-  const [scale, setScale] = useState(2);
+  const hexTileRef = useRef()
+  const [scale, setScale] = useState(2)
 
-  const gltf = useLoader(GLTFLoader, '/GroningenHex.gltf');
+  const gltf = useLoader(GLTFLoader, '/GroningenHex.gltf')
 
   // useFrame(({ clock }) => {
   //   // hexTileRef.current.rotation.y = clock.getElapsedTime()
@@ -26,18 +26,18 @@ const HexTileModel = () => {
 
   useEffect(() => {
     const updateScale = () => {
-      const isMobile = window.innerWidth <= 768;
-      const newScale = isMobile ? 2.3 : 1.8;
-      setScale(newScale);
-    };
+      const isMobile = window.innerWidth <= 768
+      const newScale = isMobile ? 2.3 : 1.8
+      setScale(newScale)
+    }
 
-    window.addEventListener('resize', updateScale);
-    updateScale(); // Call the function initially
+    window.addEventListener('resize', updateScale)
+    updateScale() // Call the function initially
 
     return () => {
-      window.removeEventListener('resize', updateScale);
-    };
-  }, []);
+      window.removeEventListener('resize', updateScale)
+    }
+  }, [])
 
   return (
     <>
@@ -50,8 +50,8 @@ const HexTileModel = () => {
         rotation={[0.4, -2.3, -0.015]}
       />
     </>
-  );
-};
+  )
+}
 
 const Main = () => {
   return (
@@ -60,7 +60,7 @@ const Main = () => {
         {/* Main Wrapper */}
         <div className='flex justify-center items-center'>
           {/* Wrapper Containers */}
-          <div className='flex flex-col-reverse md:flex-row justify-center items-center overflow-x-hidden lg:px-32 lg:container'>
+          <div className='flex flex-col-reverse md:flex-row justify-center items-center overflow-x-hidden lg:container'>
             {/* Text Container */}
             <div className='flex flex-col font-poppins gap-y-4 p-24 lg:ml-14'>
               <h3 className='text-lg font-light'>
@@ -122,6 +122,6 @@ const Main = () => {
         </div>
       </section>
     </>
-  );
-};
-export default Main;
+  )
+}
+export default Main

@@ -1,18 +1,18 @@
-import Link from 'next/link';
-import Image from 'next/image';
+import Link from 'next/link'
+import Image from 'next/image'
 
-import { useState } from 'react';
+import { useState } from 'react'
 
-import innotopiaLogo from '../../../public/innotopia-logo-white.svg';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
+import innotopiaLogo from '../../../public/innotopia-logo-white.svg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons'
 
 const Nav = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
   const toggleMenu = () => {
-    setIsOpen((prev) => !prev);
-  };
+    setIsOpen((prev) => !prev)
+  }
 
   return (
     <>
@@ -103,7 +103,7 @@ const Nav = () => {
         {/* Navbar (desktop) */}
         <nav className='hidden py-4 lg:flex lg:justify-center lg:items-center'>
           {/* Main Container */}
-          <div className='flex justify-between px-64 container'>
+          <div className='flex justify-between container'>
             {/* Logo */}
             <div className='shrink-0'>
               <Link href='/'>
@@ -118,7 +118,7 @@ const Nav = () => {
               </Link>
             </div>
             {/* Menu */}
-            <div className='list-none flex justify-center items-center gap-x-8 px-4 text-xs text-white font-poppins font-semibold xl:text-sm xl:gap-x-12 xl:pl-10'>
+            <div className='list-none flex justify-center items-center gap-x-8 text-xs text-white font-poppins font-semibold xl:text-sm xl:gap-x-12 xl:pl-10'>
               {/* Menu Item */}
               <div className='inline-block relative group'>
                 <li className='relative'>
@@ -188,6 +188,6 @@ const Nav = () => {
         </nav>
       </div>
     </>
-  );
-};
-export default Nav;
+  )
+}
+export default Nav

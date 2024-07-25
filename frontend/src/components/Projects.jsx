@@ -1,15 +1,15 @@
-import Link from 'next/link';
-import Image from 'next/image';
+import Link from 'next/link'
+import Image from 'next/image'
 // import { FaArrowRight } from 'react-icons/fa';
-import { PortableText, toPlainText } from '@portabletext/react';
+import { PortableText, toPlainText } from '@portabletext/react'
 
 const Projects = ({ projects }) => {
-  const wordLimit = 50;
+  const wordLimit = 50
 
   const getWords = (text) => {
-    const words = text.trim().split(' ');
-    return words.slice(0, wordLimit).join(' ');
-  };
+    const words = text.trim().split(' ')
+    return words.slice(0, wordLimit).join(' ')
+  }
 
   return (
     <section id='projects' className='scroll-mt-16'>
@@ -27,7 +27,7 @@ const Projects = ({ projects }) => {
             </div>
           </div>
           {/* Rounded Box Wrapper */}
-          <div className='lg:px-56 px-12 py-8'>
+          <div className='lg:px-32 px-12 py-8'>
             {/* Rounded Box Container */}
             <div className='rounded-2xl drop-shadow-md bg-slate-50 w-full h-full container p-8'>
               {/* Projects Wrapper */}
@@ -94,7 +94,7 @@ const Projects = ({ projects }) => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Projects;
+export default Projects
