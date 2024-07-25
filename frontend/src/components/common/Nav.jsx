@@ -101,7 +101,7 @@ const Nav = () => {
           )}
         </nav>
         {/* Navbar (desktop) */}
-        <nav className='hidden py-4 lg:flex lg:justify-center lg:items-center'>
+        <nav className='hidden py-4 lg:flex lg:justify-center lg:px-6 lg:items-center'>
           {/* Main Container */}
           <div className='flex justify-between container'>
             {/* Logo */}

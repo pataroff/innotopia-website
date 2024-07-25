@@ -5,7 +5,7 @@ const Experience = ({ companies }) => {
     <section>
       <div className='flex justify-center items-center'>
         {/* Main Container */}
-        <div className='flex flex-col justify-center items-center container lg:px-32'>
+        <div className='flex flex-col justify-center items-center container'>
           {/* Text Container */}
           <div>
             <h3 className='font-poppins text-center px-14 py-12 font-bold text-md uppercase'>
@@ -13,7 +13,7 @@ const Experience = ({ companies }) => {
             </h3>
           </div>
           {/* Companies Container */}
-          <div className='flex flex-col gap-y-24 md:flex-row justify-center items-center lg:gap-x-20 md:gap-x-16 py-14 md:px-20'>
+          <div className='flex flex-col gap-y-24 md:flex-row justify-center items-center lg:gap-x-20 md:gap-x-14 lg:py-14 lg:px-24 md:py-7 md:px-20'>
             {/* Company Logo */}
             {companies.map((company) => (
               <div key={company._id}>
@@ -22,7 +22,7 @@ const Experience = ({ companies }) => {
                   priority
                   src={company.logo}
                   alt={company.title}
-                  width={100}
+                  width={125}
                   height={100}
                 />
               </div>

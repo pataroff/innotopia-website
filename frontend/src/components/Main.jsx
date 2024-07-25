@@ -26,8 +26,8 @@ const HexTileModel = () => {
 
   useEffect(() => {
     const updateScale = () => {
-      const isMobile = window.innerWidth <= 768
-      const newScale = isMobile ? 2.3 : 1.8
+      const isMobile = window.innerWidth < 768
+      const newScale = isMobile ? 2.3 : 1.7
       setScale(newScale)
     }
 
@@ -62,7 +62,7 @@ const Main = () => {
           {/* Wrapper Containers */}
           <div className='flex flex-col-reverse md:flex-row justify-center items-center overflow-x-hidden lg:container'>
             {/* Text Container */}
-            <div className='flex flex-col font-poppins gap-y-4 p-24 lg:ml-14'>
+            <div className='flex flex-col font-poppins gap-y-4 p-24'>
               <h3 className='text-lg font-light'>
                 Innovate your company with Innotopia
               </h3>
@@ -85,7 +85,7 @@ const Main = () => {
               </Link>
             </div>
             {/* Hero Container */}
-            <div className='relative h-[500px] w-[600px] md:w-[1000px] lg:h-[600px] lg:w-[600px]'>
+            <div className='relative h-[500px] w-[600px] md:w-[1000px] lg:h-[600px] lg:w-[650px]'>
               <div className='absolute top-24 lg:top-0 md:top-0 inset-0 z-10'>
                 <Canvas>
                   <OrbitControls
